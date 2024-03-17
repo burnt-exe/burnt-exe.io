@@ -1,6 +1,6 @@
 <h1 align="center">
   <br> 
-  <a href="https://github.com/burnt-exe/burnt-exe.github.io/PromoteYourself"><img src="![image](https://github.com/burnt-exe/burnt-exe.github.io/assets/126121348/bca18347-a8a9-4457-951b-6c8ac8fc6c90)" 
+  <a href="https://github.com/burnt-exe/burnt-exe.github.io/PromoteYourself"><img src="https://www.bing.com/images/create/create-an-image-for-my-readmemd/1-65f751c3f4c84052bfdaf418f2b7a090?id=Nhu6RrTKQdzAIkVgMwNkAg%3d%3d&view=detailv2&idpp=genimg&idpclose=1&thId=OIG4.MYft1p.797eHncR6T0cR&frame=sydedg&FORM=SYDBIC" 
   alt="PromoteYourself Logo" width="200"></a>
   <br>
   PromoteYourself
