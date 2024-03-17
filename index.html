@@ -1,62 +1,81 @@
-<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Raydo Matthee - CEO @ Skunkworks (Pty) Ltd</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Raydo Matthee</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 </head>
-<body>
-    <header>
-        <h1>Raydo Matthee</h1>
-        <p>CEO @ Skunkworks (Pty) Ltd | IBM Certified Facilitator</p>
+<body class="bg-gray-800 text-white font-sans">
+    <header class="py-4">
+        <nav class="flex justify-between items-center px-10">
+            <div class="flex items-center">
+                <!-- Logo and home link -->
+                <a href="#" class="text-xl font-bold mr-10">HOME</a>
+                <!-- Navigation Links -->
+                <div class="hidden lg:flex space-x-4">
+                    <!-- Repeat for each navigation link -->
+                    <a href="#" class="hover:text-gray-300">About</a>
+                    <a href="#" class="hover:text-gray-300">Portfolio</a>
+                    <!-- More links -->
+                </div>
+            </div>
+            <div class="flex items-center">
+                <!-- Right-side icons or links -->
+                <a href="#" class="hover:text-gray-300 mr-4"><i class="fas fa-search"></i></a>
+                <a href="#" class="hover:text-gray-300"><i class="fas fa-envelope"></i></a>
+            </div>
+        </nav>
     </header>
     
-    <nav>
-        <ul>
-            <li><a href="about.html">About</a></li>
-            <li><a href="experience.html">Experience</a></li>
-            <li><a href="education.html">Education</a></li>
-            <li><a href="skills.html">Skills</a></li>
-            <li><a href="contact.html">Contact</a></li>
-        </ul>
-    </nav>
+    <main class="flex">
+        <!-- Sidebar -->
+        <aside class="w-1/4 p-8">
+            <div class="space-y-6">
+                <!-- Repeat for each experience item -->
+                <div>
+                    <h3 class="font-bold">EXPERIENCE</h3>
+                    <div class="relative mt-2">
+                        <div class="overflow-hidden h-2 text-xs flex rounded bg-gray-700">
+                            <div style="width:70%" class="shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-gray-400"></div>
+                        </div>
+                    </div>
+                </div>
+                <!-- More items -->
+            </div>
+        </aside>
 
-    <div class="parallax"></div>
-
-    <main>
-        <section>
-            <h2>Welcome</h2>
-            <p>Welcome to the digital home of Raydo Matthee. As a pioneer in technology and education, Raydo's mission is to innovate, inspire, and lead the way in developing cutting-edge solutions for tomorrow's challenges.</p>
+        <!-- Main content -->
+        <section class="w-1/2 p-8">
+            <h1 class="text-5xl font-bold">RAYDO MATTHEE</h1>
+            <p class="mt-4">A description or tagline goes here.</p>
+            <!-- Profile image placeholder -->
+            <img src="https://placehold.co/300x300" alt="Placeholder image representing a stylized portrait of Raydo Matthee" class="my-8">
+            <!-- Main content text -->
+            <p>Your main content goes here...</p>
         </section>
-
-        <section>
-            <h2>My Philosophy</h2>
-            <p>At the heart of every challenge lies an opportunity for growth and learning. I believe in leveraging technology not just to solve problems, but to transform how we think, learn, and connect with each other.</p>
-        </section>
-    
-        <section>
-            <h2>Innovation Projects</h2>
-            <img src="https://raw.githubusercontent.com/burnt-exe/burnt-exe.github.io/main/Integrated%20Learning%20and%20Talent%20Solutions.png" alt="Integrated Learning and Talent Solutions">
-            <p>From cloud computing breakthroughs to the development of sustainable tech solutions, my journey has been marked by a relentless pursuit of innovation. Discover the projects that have shaped my career and continue to drive my passion for technology.</p>
-        </section>
-
-
-        <section>
-            <h2>Community Engagement</h2>
-            <p>Building a better world through technology starts with community. I'm actively involved in mentorship programs, tech talks, and collaborative projects aimed at empowering the next generation of innovators.</p>
-        </section>
-
-        <section>
-            <h2>Hobbies & Interests</h2>
-            <p>When I'm not exploring the frontiers of technology, you'll find me immersed in the world of music and photography, seeking inspiration in the beauty of the world around us.</p>
-        </section>
+        
+        <!-- Skills section -->
+        <aside class="w-1/4 p-8">
+            <div class="space-y-6">
+                <h3 class="font-bold">SKILLS</h3>
+                <!-- Repeat for each skill -->
+                <div>
+                    <div class="overflow-hidden h-2 text-xs flex rounded bg-gray-700">
+                        <div style="width:80%" class="shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-gray-400"></div>
+                    </div>
+                </div>
+                <!-- More items -->
+            </div>
+        </aside>
     </main>
     
-    <footer>
-        <p>Connect with me on <a href="https://github.com/burnt-exe">GitHub @burnt-exe</a></p>
+    <footer class="py-4">
+        <div class="flex justify-center space-x-4">
+            <!-- Footer links -->
+            <a href="#" class="hover:text-gray-300">Privacy Policy</a>
+            <!-- More links -->
+        </div>
     </footer>
-    
-    <script src="script.js"></script>
 </body>
 </html>
