@@ -4,41 +4,112 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Raydo Matthee - burnt-exe</title>
-    <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+        /* Reset CSS */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #1a202c;
+            color: #fff;
+            margin: 0;
+            padding: 0;
+        }
+        
+        header {
+            text-align: center;
+            padding: 20px;
+        }
+        
+        nav {
+            background-color: #2d3748;
+            text-align: center;
+            padding: 10px 0;
+        }
+        
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+        
+        nav a:hover {
+            color: #a0aec0;
+        }
+        
+        section {
+            padding: 20px;
+        }
+        
+        footer {
+            text-align: center;
+            background-color: #2d3748;
+            padding: 10px 0;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+        
+        footer p {
+            margin: 5px 0;
+        }
+        
+        .logo {
+            width: 150px;
+            height: 150px;
+        }
+        
+        .achievements {
+            list-style-type: none;
+            padding: 0;
+            text-align: left;
+        }
+        
+        .achievements li {
+            margin-bottom: 10px;
+        }
+    </style>
 </head>
-<body class="bg-gray-900 text-white">
+<body>
 
-    <header class="text-center py-10">
-        <img src="https://github.com/burnt-exe/burnt-exe.github.io/blob/main/bunrtexe.png?raw=true" alt="burnt.exe logo" class="mx-auto mb-4" style="width: 150px; height: 150px;">
-        <h1 class="text-4xl font-bold">Raydo Matthee</h1>
-        <p class="text-xl">@burnt-exe</p>
-        <p class="text-lg">CEO of Skunkworks (Pty) Ltd</p>
+    <header>
+        <img src="https://github.com/burnt-exe/burnt-exe.github.io/blob/main/bunrtexe.png?raw=true" alt="burnt.exe logo" class="logo">
+        <h1>Raydo Matthee</h1>
+        <p>@burnt-exe</p>
+        <p>CEO of Skunkworks (Pty) Ltd</p>
     </header>
 
-    <nav class="text-center py-4 bg-gray-800">
-        <a href="index.html" class="text-blue-400 hover:text-blue-500 px-4">Home</a>
-        <a href="about.html" class="text-blue-400 hover:text-blue-500 px-4">About</a>
-        <a href="contact.html" class="text-blue-400 hover:text-blue-500 px-4">Contact</a>
-        <a href="education.html" class="text-blue-400 hover:text-blue-500 px-4">Education</a>
-        <a href="experience.html" class="text-blue-400 hover:text-blue-500 px-4">Experience</a>
-        <a href="skills.html" class="text-blue-400 hover:text-blue-500 px-4">Skills</a>
-        <!-- Add links to other pages here -->
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+        <a href="education.html">Education</a>
+        <a href="experience.html">Experience</a>
+        <a href="skills.html">Skills</a>
+        <!-- Add more links as needed -->
     </nav>
 
-    <section id="about" class="py-10">
-        <div class="container mx-auto px-4">
-            <!-- Content for the About page -->
-        </div>
+    <section id="about">
+        <h2>About Me</h2>
+        <p>I'm the CEO of Skunkworks (Pty) Ltd, a trailblazing technology and learning solutions company based in Johannesburg. We are at the forefront of innovation, creating impactful technology and learning experiences.</p>
     </section>
 
-    <section id="achievements" class="bg-gray-800 py-10 mt-8">
-        <div class="container mx-auto px-4">
-            <!-- Content for the Achievements section -->
-        </div>
+    <section id="achievements">
+        <h2>Achievements</h2>
+        <ul class="achievements">
+            <li>Achievement: Pull Sharkx2</li>
+            <li>Achievement: Pair Extraordinaire</li>
+            <li>Achievement: YOLO</li>
+            <!-- Add more achievements as needed -->
+        </ul>
     </section>
 
-    <footer class="text-center py-6 border-t border-gray-800 mt-10">
+    <footer>
         <p>&copy; 2024 burnt.exe. All rights reserved.</p>
         <p>Powered by Skunkworks creativity and innovation.</p>
     </footer>
