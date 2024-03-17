@@ -4,45 +4,48 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Experience - Raydo Matthee</title>
-    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 </head>
-<body>
-    <header>
-        <h1>Professional Experience</h1>
+<body class="bg-gray-900 text-white">
+
+    <header class="text-center py-10">
+        <!-- Logo and navigation menu can be added here -->
+        <nav class="mt-6">
+            <ul class="flex justify-center space-x-4">
+                <li><a href="index.html" class="hover:text-blue-400">Home</a></li>
+                <li><a href="about.html" class="hover:text-blue-400">About</a></li>
+                <li><a href="experience.html" class="hover:text-blue-400">Experience</a></li>
+                <li><a href="education.html" class="hover:text-blue-400">Education</a></li>
+                <li><a href="skills.html" class="hover:text-blue-400">Skills</a></li>
+                <li><a href="contact.html" class="hover:text-blue-400">Contact</a></li>
+            </ul>
+        </nav>
     </header>
-    
-    <nav>
-        <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="experience.html">Experience</a></li>
-            <li><a href="education.html">Education</a></li>
-            <li><a href="skills.html">Skills</a></li>
-            <li><a href="contact.html">Contact</a></li>
-        </ul>
-    </nav>
-    
-    <main>
-        <section class="job">
-            <h2>CEO - Skunkworks (Pty) Ltd</h2>
-            <p class="timeframe">October 2020 - Present</p>
-            <p>Lead a dynamic team to provide innovative cloud services and solutions. Focused on strategic planning, building partnerships, and fostering growth within the company.</p>
-        </section>
 
-        <section class="job">
-            <h2>Previous Role</h2>
-            <p class="timeframe">Dates of Employment</p>
-            <p>Description of job responsibilities, achievements, and impact.</p>
-            <!-- Add more roles in similar format as needed -->
-        </section>
+    <section id="professional-experience" class="py-10">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold mb-6">Professional Experience</h2>
 
-        <!-- Repeat the section for each role -->
-    </main>
-    
-    <footer>
-        <p>Find more about me on <a href="https://github.com/burnt-exe">GitHub @burnt-exe</a></p>
+            <div class="mb-8">
+                <h3 class="text-xl font-semibold">CEO - Skunkworks (Pty) Ltd</h3>
+                <p class="text-gray-400">October 2020 - Present</p>
+                <p class="mt-2">Lead a dynamic team to provide innovative cloud services and solutions. Focused on strategic planning, building partnerships, and fostering growth within the company.</p>
+            </div>
+
+            <!-- Add more previous roles as needed -->
+            <div>
+                <h3 class="text-xl font-semibold">Previous Role</h3>
+                <p class="text-gray-400">Dates of Employment</p>
+                <p class="mt-2">Description of job responsibilities, achievements, and impact.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer class="text-center py-6 border-t border-gray-800 mt-10">
+        <p>&copy; 2024 burnt.exe. All rights reserved.</p>
+        <p>Powered by Skunkworks creativity and innovation.</p>
     </footer>
-    
-    <script src="script.js"></script>
+
 </body>
 </html>
