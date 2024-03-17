@@ -4,16 +4,37 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Raydo Matthee - burnt-exe</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+    </style>
 </head>
 <body class="bg-gray-900 text-white">
 
     <header class="text-center py-10">
-        <img src="https://github.com/burnt-exe/burnt-exe.github.io/blob/main/bunrtexe_logo_print.png?raw=true" alt="burnt.exe logo" class="mx-auto mb-4">
+        <img src="https://github.com/burnt-exe/burnt-exe.github.io/blob/main/bunrtexe_logo_print.png?raw=true" alt="burnt.exe logo" class="mx-auto mb-4 rounded-full shadow-lg">
         <h1 class="text-4xl font-bold">Raydo Matthee</h1>
         <p class="text-xl">@burnt-exe</p>
         <p class="text-lg">CEO of Skunkworks (Pty) Ltd</p>
+
+        <!-- Navigation Menu -->
+        <nav class="mt-6">
+            <ul class="flex justify-center space-x-4">
+                <li><a href="about.html" class="hover:text-blue-400">About</a></li>
+                <li><a href="projects.html" class="hover:text-blue-400">Projects</a></li>
+                <li class="dropdown">
+                    <a href="#" class="hover:text-blue-400">Achievements</a>
+                    <div class="dropdown-content hidden absolute bg-gray-900 text-white py-2 rounded-lg shadow-lg">
+                        <a href="#" class="block px-4 py-2 hover:bg-gray-800">IBM Champions</a>
+                        <!-- Add more achievement pages as needed -->
+                    </div>
+                </li>
+                <li><a href="contact.html" class="hover:text-blue-400">Contact</a></li>
+            </ul>
+        </nav>
     </header>
 
     <section id="about" class="py-10">
@@ -37,18 +58,6 @@
                     <p class="mt-4">9 followers · 69 following</p>
                 </div>
             </div>
-        </div>
-    </section>
-
-    <section id="achievements" class="bg-gray-800 py-10 mt-8">
-        <div class="container mx-auto px-4">
-            <h2 class="text-3xl font-bold text-center mb-6">Achievements</h2>
-            <ul class="list-disc space-y-2 pl-5">
-                <li>Achievement: Pull Sharkx2</li>
-                <li>Achievement: Pair Extraordinaire</li>
-                <li>Achievement: YOLO</li>
-                <!-- More achievements can be added here -->
-            </ul>
         </div>
     </section>
 
