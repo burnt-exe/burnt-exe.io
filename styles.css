@@ -45,12 +45,19 @@ nav ul li a:hover {
 }
 
 section {
+    
     margin: 20px auto;
     padding: 20px;
     max-width: 800px; /* Adjust as necessary */
     background-color: #e7eff6; /* Very light blue, for contrast */
     border: 1px solid #b0c4de; /* Soft blue border */
 }
+
+section img {
+    max-width: 100%;
+    height: auto;
+}
+
 
 footer {
     background-color: #005792;
