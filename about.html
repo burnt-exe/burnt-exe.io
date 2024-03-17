@@ -4,45 +4,62 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About - Raydo Matthee</title>
-    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+    </style>
 </head>
-<body>
-    <header>
-        <h1>About Raydo Matthee</h1>
+<body class="bg-gray-900 text-white">
+
+    <header class="text-center py-10">
+        <img src="https://github.com/burnt-exe/burnt-exe.github.io/blob/main/bunrtexe_logo_print.png?raw=true" alt="burnt.exe logo" class="mx-auto mb-4 rounded-full shadow-lg">
+        <h1 class="text-4xl font-bold">Raydo Matthee</h1>
+        <p class="text-xl">@burnt-exe</p>
+        <p class="text-lg">CEO of Skunkworks (Pty) Ltd</p>
+
+        <!-- Navigation Menu -->
+        <nav class="mt-6">
+            <ul class="flex justify-center space-x-4">
+                <li><a href="index.html" class="hover:text-blue-400">Home</a></li>
+                <li><a href="projects.html" class="hover:text-blue-400">Projects</a></li>
+                <li class="dropdown">
+                    <a href="#" class="hover:text-blue-400">Achievements</a>
+                    <div class="dropdown-content hidden absolute bg-gray-900 text-white py-2 rounded-lg shadow-lg">
+                        <a href="#" class="block px-4 py-2 hover:bg-gray-800">IBM Champions</a>
+                        <!-- Add more achievement pages as needed -->
+                    </div>
+                </li>
+                <li><a href="contact.html" class="hover:text-blue-400">Contact</a></li>
+            </ul>
+        </nav>
     </header>
-    
-    <nav>
-        <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="experience.html">Experience</a></li>
-            <li><a href="education.html">Education</a></li>
-            <li><a href="skills.html">Skills</a></li>
-            <li><a href="contact.html">Contact</a></li>
-        </ul>
-    </nav>
-    
-    <main>
-        <section>
-            <h2>Professional Background</h2>
-            <p>I'm the CEO of Skunkworks (Pty) Ltd, specializing in cloud management and IT consulting services. With a background in systems engineering and a passion for education, I've dedicated my career to fostering growth and innovation within the tech industry.</p>
-        </section>
-        
-        <section>
-            <h2>Philosophy</h2>
-            <p>As a lifelong learner and educator, I believe in the power of knowledge to transform lives and industries. I'm committed to sharing my experience and insights to help others grow and succeed in the rapidly evolving world of technology.</p>
-        </section>
-        
-        <section>
-            <h2>Interests</h2>
-            <p>Outside of my professional life, I enjoy exploring the latest tech trends, engaging with the community through workshops and seminars, and mentoring the next generation of IT professionals.</p>
-        </section>
-    </main>
-    
-    <footer>
-        <p>Connect with me on <a href="https://github.com/burnt-exe">GitHub @burnt-exe</a></p>
+
+    <section id="about" class="py-10">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold mb-4">About Me</h2>
+            <p class="text-lg">
+                I'm Raydo Matthee, the CEO of Skunkworks (Pty) Ltd, a technology and learning solutions company based in Johannesburg. With a passion for innovation and education, I lead our team in creating impactful experiences that push the boundaries of technology and learning.
+            </p>
+            <p class="mt-4">
+                Follow me on my journey:
+            </p>
+            <div class="flex space-x-4 mt-4">
+                <a href="https://www.skunkworks.africa" class="text-blue-400 hover:text-blue-500">www.skunkworks.africa</a>
+                <a href="https://linkedin.com/company/skunkworksza" class="hover:text-gray-300"><i class="fab fa-linkedin"></i></a>
+                <a href="https://twitter.com/skunkworksza" class="hover:text-gray-300"><i class="fab fa-twitter-square"></i></a>
+                <a href="https://github.com/skunkworksza" class="hover:text-gray-300"><i class="fab fa-github-square"></i></a>
+            </div>
+            <p class="mt-4">9 followers · 69 following</p>
+        </div>
+    </section>
+
+    <footer class="text-center py-6 border-t border-gray-800 mt-10">
+        <p>&copy; 2024 burnt.exe. All rights reserved.</p>
+        <p>Powered by Skunkworks creativity and innovation.</p>
     </footer>
-    
-    <script src="script.js"></script>
+
 </body>
 </html>
