@@ -1,57 +1,105 @@
-body {
-    font-family: Arial, sans-serif;
+/* Basic reset for margins and paddings */
+* {
     margin: 0;
     padding: 0;
-    color: #333;
-    background: #f8f8f8;
+    box-sizing: border-box;
 }
 
+body {
+    font-family: 'Arial', sans-serif;
+    color: #333; /* Dark text for readability */
+    background: #f8f8f8; /* Light grey background for a clean look */
+    line-height: 1.6;
+}
+
+/* Header styling */
 .header {
-    background-color: #222;
-    color: white;
-    padding: 10px 20px;
+    background-color: #007bff; /* Blue background for the header */
+    color: #fff; /* White text for contrast */
+    padding: 20px 0;
     text-align: center;
 }
 
-.name {
-    margin: 0;
+.header .name {
+    font-size: 2em;
+    margin-bottom: 5px;
 }
 
-.title {
-    margin: 0;
-    font-weight: normal;
+.header .title {
     font-size: 1.2em;
+    font-weight: 300;
 }
 
+/* Navigation bar styling */
 .navigation {
-    background-color: #333;
+    background-color: #0056b3; /* Slightly darker blue for the navigation bar */
+    overflow: hidden;
 }
 
-.nav-list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
+.navigation .nav-list {
+    list-style-type: none;
     display: flex;
     justify-content: center;
+    align-items: center;
+    padding: 0;
 }
 
-.nav-item a {
+.navigation .nav-item a {
     text-decoration: none;
     color: white;
     padding: 15px 20px;
     display: block;
+    transition: background-color 0.3s;
 }
 
-.nav-item a:hover {
-    background-color: #444;
+.navigation .nav-item a:hover {
+    background-color: #004080; /* Even darker blue for hover effect */
 }
 
+/* Main content area */
+.main-content {
+    padding: 20px;
+    text-align: center;
+}
+
+.main-content h1 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    color: #007bff; /* Blue text for headings */
+}
+
+.main-content p {
+    font-size: 1.1em;
+    margin-bottom: 10px;
+}
+
+/* Footer styling */
 .footer {
-    background-color: #222;
+    background-color: #333; /* Grey-black background for the footer */
     color: white;
     text-align: center;
     padding: 20px;
-    position: absolute;
+    position: fixed;
     bottom: 0;
     width: 100%;
+}
+
+.footer p {
+    margin: 0;
+    font-size: 1em;
+}
+
+/* Responsive design for smaller screens */
+@media (max-width: 768px) {
+    .navigation .nav-list {
+        flex-direction: column;
+    }
+
+    .main-content h1 {
+        font-size: 2em;
+    }
+
+    .main-content p {
+        font-size: 1em;
+    }
 }
