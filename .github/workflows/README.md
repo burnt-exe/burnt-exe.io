@@ -1,5 +1,6 @@
 <h1 align="center">
-  <br>
+  <br> ![image](https://github.com/burnt-exe/burnt-exe.github.io/assets/126121348/ef16bb07-430c-4486-abd2-03ff78312971)
+
   <a href="https://github.com/burnt-exe/burnt-exe.github.io/PromoteYourself"><img src="(https://github.com/burnt-exe/burnt-exe.github.io/assets/126121348/73be37a3-59e7-4da1-a745-f18e7b2ebb2e)
 " alt="PromoteYourself Logo" width="200"></a>
   <br>
