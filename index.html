@@ -2,80 +2,76 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Raydo Matthee</title>
+    <title>Raydo Matthee - Achievements</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+        }
+    </style>
 </head>
-<body class="bg-gray-800 text-white font-sans">
-    <header class="py-4">
-        <nav class="flex justify-between items-center px-10">
-            <div class="flex items-center">
-                <!-- Logo and home link -->
-                <a href="#" class="text-xl font-bold mr-10">HOME</a>
-                <!-- Navigation Links -->
-                <div class="hidden lg:flex space-x-4">
-                    <!-- Repeat for each navigation link -->
-                    <a href="#" class="hover:text-gray-300">About</a>
-                    <a href="#" class="hover:text-gray-300">Portfolio</a>
-                    <!-- More links -->
-                </div>
+<body class="bg-gray-800 text-white p-8">
+    <div class="max-w-6xl mx-auto">
+        <!-- Welcome Message -->
+        <header class="text-center mb-8">
+            <h1 class="text-4xl font-bold mb-2">Welcome, Raydo</h1>
+            <p class="text-xl mb-4">Congratulations on your most recent badge 🎉</p>
+            <div class="inline-block bg-gray-700 p-4 rounded">
+                <p class="text-lg font-bold">IBM Champion 2024</p>
+                <p>IBM</p>
             </div>
-            <div class="flex items-center">
-                <!-- Right-side icons or links -->
-                <a href="#" class="hover:text-gray-300 mr-4"><i class="fas fa-search"></i></a>
-                <a href="#" class="hover:text-gray-300"><i class="fas fa-envelope"></i></a>
-            </div>
-        </nav>
-    </header>
-    
-    <main class="flex">
-        <!-- Sidebar -->
-        <aside class="w-1/4 p-8">
-            <div class="space-y-6">
-                <!-- Repeat for each experience item -->
-                <div>
-                    <h3 class="font-bold">EXPERIENCE</h3>
-                    <div class="relative mt-2">
-                        <div class="overflow-hidden h-2 text-xs flex rounded bg-gray-700">
-                            <div style="width:70%" class="shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-gray-400"></div>
-                        </div>
-                    </div>
-                </div>
-                <!-- More items -->
-            </div>
-        </aside>
+        </header>
 
-        <!-- Main content -->
-        <section class="w-1/2 p-8">
-            <h1 class="text-5xl font-bold">RAYDO MATTHEE</h1>
-            <p class="mt-4">A description or tagline goes here.</p>
-            <!-- Profile image placeholder -->
-            <img src="https://placehold.co/300x300" alt="Placeholder image representing a stylized portrait of Raydo Matthee" class="my-8">
-            <!-- Main content text -->
-            <p>Your main content goes here...</p>
+        <!-- Skills Section -->
+        <section class="mb-8">
+            <h2 class="text-3xl font-bold mb-4">Explore top skills</h2>
+            <p class="text-lg mb-2">Based on your occupation</p>
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                <!-- Repeat for each skill -->
+                <div class="bg-gray-700 p-4 rounded">
+                    <p>Leadership</p>
+                </div>
+                <!-- ... more skills -->
+            </div>
+        </section>
+
+        <!-- Badges Section -->
+        <section>
+            <h2 class="text-3xl font-bold mb-4">Explore other badges</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                <!-- Repeat for each badge -->
+                <div class="bg-gray-700 p-4 rounded">
+                    <p class="text-lg font-bold">IBM Application Developer Apprenticeship</p>
+                    <p>Free - Advanced</p>
+                </div>
+                <!-- ... more badges -->
+            </div>
+        </section>
+
+        <!-- Activity Snapshot -->
+        <section class="mt-8 text-center">
+            <h2 class="text-3xl font-bold mb-4">Activity snapshot</h2>
+            <div class="flex justify-around items-center">
+                <div>
+                    <p class="text-2xl font-bold">127</p>
+                    <p>Badges</p>
+                </div>
+                <div>
+                    <p class="text-2xl font-bold">721</p>
+                    <p>Skills</p>
+                </div>
+                <!-- ... more stats -->
+            </div>
         </section>
         
-        <!-- Skills section -->
-        <aside class="w-1/4 p-8">
-            <div class="space-y-6">
-                <h3 class="font-bold">SKILLS</h3>
-                <!-- Repeat for each skill -->
-                <div>
-                    <div class="overflow-hidden h-2 text-xs flex rounded bg-gray-700">
-                        <div style="width:80%" class="shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-gray-400"></div>
-                    </div>
-                </div>
-                <!-- More items -->
-            </div>
-        </aside>
-    </main>
-    
-    <footer class="py-4">
-        <div class="flex justify-center space-x-4">
-            <!-- Footer links -->
-            <a href="#" class="hover:text-gray-300">Privacy Policy</a>
-            <!-- More links -->
-        </div>
-    </footer>
+        <!-- Footer -->
+        <footer class="text-center mt-8 text-sm">
+            <a href="#" class="text-blue-400 hover:text-blue-500">Request Demo</a> |
+            <a href="#" class="text-blue-400 hover:text-blue-500">About Credly</a> |
+            <!-- ... more links -->
+        </footer>
+    </div>
 </body>
 </html>
