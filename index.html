@@ -4,112 +4,55 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Raydo Matthee - burnt-exe</title>
+    <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-    <style>
-        /* Reset CSS */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #1a202c;
-            color: #fff;
-            margin: 0;
-            padding: 0;
-        }
-        
-        header {
-            text-align: center;
-            padding: 20px;
-        }
-        
-        nav {
-            background-color: #2d3748;
-            text-align: center;
-            padding: 10px 0;
-        }
-        
-        nav a {
-            color: #fff;
-            text-decoration: none;
-            margin: 0 10px;
-        }
-        
-        nav a:hover {
-            color: #a0aec0;
-        }
-        
-        section {
-            padding: 20px;
-        }
-        
-        footer {
-            text-align: center;
-            background-color: #2d3748;
-            padding: 10px 0;
-            position: fixed;
-            bottom: 0;
-            width: 100%;
-        }
-        
-        footer p {
-            margin: 5px 0;
-        }
-        
-        .logo {
-            width: 150px;
-            height: 150px;
-        }
-        
-        .achievements {
-            list-style-type: none;
-            padding: 0;
-            text-align: left;
-        }
-        
-        .achievements li {
-            margin-bottom: 10px;
-        }
-    </style>
 </head>
-<body>
+<body class="bg-gray-900 text-white">
 
-    <header>
-        <img src="https://github.com/burnt-exe/burnt-exe.github.io/blob/main/bunrtexe.png?raw=true" alt="burnt.exe logo" class="logo">
-        <h1>Raydo Matthee</h1>
-        <p>@burnt-exe</p>
-        <p>CEO of Skunkworks (Pty) Ltd</p>
+    <header class="text-center py-10">
+        <img src="https://github.com/burnt-exe/burnt-exe.github.io/blob/main/bunrtexe.png?raw=true" alt="burnt.exe logo" class="mx-auto mb-4">
+        <h1 class="text-4xl font-bold">Raydo Matthee</h1>
+        <p class="text-xl">@burnt-exe</p>
+        <p class="text-lg">CEO of Skunkworks (Pty) Ltd</p>
     </header>
 
-    <nav>
-        <a href="index.html">Home</a>
-        <a href="about.html">About</a>
-        <a href="contact.html">Contact</a>
-        <a href="education.html">Education</a>
-        <a href="experience.html">Experience</a>
-        <a href="skills.html">Skills</a>
-        <!-- Add more links as needed -->
-    </nav>
-
-    <section id="about">
-        <h2>About Me</h2>
-        <p>I'm the CEO of Skunkworks (Pty) Ltd, a trailblazing technology and learning solutions company based in Johannesburg. We are at the forefront of innovation, creating impactful technology and learning experiences.</p>
+    <section id="about" class="py-10">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-wrap justify-center items-center">
+                <div class="w-full md:w-1/2 lg:w-1/3 px-4 mb-8">
+                    <img src="https://github.com/burnt-exe/burnt-exe.github.io/blob/main/discord%20-%20Copy.jpg?raw=true" alt="burnt.exe Digital Toast Illustration" class="rounded-lg shadow-lg">
+                </div>
+                <div class="w-full md:w-1/2 lg:w-2/3 px-4">
+                    <h2 class="text-3xl font-bold mb-4">Hello, I'm Raydo Matthee</h2>
+                    <p class="text-lg">
+                        I'm the CEO of Skunkworks (Pty) Ltd, a trailblazing technology and learning solutions company based in Johannesburg. We are at the forefront of innovation, creating impactful technology and learning experiences.
+                    </p>
+                    <p class="mt-4">Follow Skunkworks on our journey:</p>
+                    <a href="https://www.skunkworks.africa" class="text-blue-400 hover:text-blue-500">www.skunkworks.africa</a>
+                    <div class="flex space-x-4 mt-4">
+                        <a href="https://linkedin.com/company/skunkworksza" class="hover:text-gray-300"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://twitter.com/skunkworksza" class="hover:text-gray-300"><i class="fab fa-twitter-square"></i></a>
+                        <a href="https://github.com/skunkworksza" class="hover:text-gray-300"><i class="fab fa-github-square"></i></a>
+                    </div>
+                    <p class="mt-4">9 followers · 69 following</p>
+                </div>
+            </div>
+        </div>
     </section>
 
-    <section id="achievements">
-        <h2>Achievements</h2>
-        <ul class="achievements">
-            <li>Achievement: Pull Sharkx2</li>
-            <li>Achievement: Pair Extraordinaire</li>
-            <li>Achievement: YOLO</li>
-            <!-- Add more achievements as needed -->
-        </ul>
+    <section id="achievements" class="bg-gray-800 py-10 mt-8">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-6">Achievements</h2>
+            <ul class="list-disc space-y-2 pl-5">
+                <li>Achievement: Pull Sharkx2</li>
+                <li>Achievement: Pair Extraordinaire</li>
+                <li>Achievement: YOLO</li>
+                <!-- More achievements can be added here -->
+            </ul>
+        </div>
     </section>
 
-    <footer>
+    <footer class="text-center py-6 border-t border-gray-800 mt-10">
         <p>&copy; 2024 burnt.exe. All rights reserved.</p>
         <p>Powered by Skunkworks creativity and innovation.</p>
     </footer>
