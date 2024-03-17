@@ -1,4 +1,10 @@
-/* Reset some basic elements */
+/* Basic Reset */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
 body, h1, h2, h3, p, ul {
     margin: 0;
     padding: 0;
@@ -8,6 +14,12 @@ body {
     font-family: 'Arial', sans-serif;
     line-height: 1.6;
     background: #f8f8f8;
+    padding: 20px;
+}
+
+/* Centering text globally */
+body, h1, h2, h3, p {
+    text-align: center;
 }
 
 /* Header styles */
@@ -15,7 +27,6 @@ header {
     background: #333;
     color: #fff;
     padding: 20px 0;
-    text-align: center;
 }
 
 /* Navigation styles */
@@ -27,15 +38,18 @@ nav {
 
 nav ul {
     list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
 nav ul li {
-    display: inline;
+    margin: 5px;
 }
 
 nav ul li a {
     color: #fff;
-    padding: 15px 20px;
+    padding: 10px 20px;
     text-decoration: none;
 }
 
@@ -43,19 +57,21 @@ nav ul li a:hover {
     background-color: #555;
 }
 
-/* Main content styles */
+/* Main content and sections with flexbox for centering */
 main {
-    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-/* 3D effect for sections */
 section {
     border: 1px solid #ddd;
     margin: 20px 0;
     padding: 20px;
+    width: 100%;
+    max-width: 800px; /* Adjust based on your design preference */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
     background: #fff;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23); /* 3D effect */
-    transform: translate3d(0, 0, 0); /* For better performance on 3D transforms */
 }
 
 /* Parallax effect */
@@ -74,13 +90,15 @@ footer {
     color: #fff;
     text-align: center;
     padding: 10px 0;
-    position: fixed;
-    bottom: 0;
     width: 100%;
 }
 
-/* Media query for devices not supporting fixed backgrounds */
+/* Media query for mobile devices */
 @media (max-width: 768px) {
+    nav ul {
+        flex-direction: column;
+    }
+
     .parallax {
         background-attachment: scroll;
     }
