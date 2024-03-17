@@ -1,12 +1,16 @@
-body {
-    font-family: Arial, sans-serif;
-    color: #333;
-    background-color: #f8f8f8;
-    line-height: 1.6;
+/* Reset some basic elements */
+body, h1, h2, h3, p, ul {
     margin: 0;
-    padding: 20px;
+    padding: 0;
 }
 
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    background: #f8f8f8;
+}
+
+/* Header styles */
 header {
     background: #333;
     color: #fff;
@@ -14,11 +18,15 @@ header {
     text-align: center;
 }
 
-nav ul {
+/* Navigation styles */
+nav {
+    display: flex;
+    justify-content: center;
     background: #444;
-    list-style-type: none;
-    padding: 0;
-    text-align: center;
+}
+
+nav ul {
+    list-style: none;
 }
 
 nav ul li {
@@ -31,26 +39,36 @@ nav ul li a {
     text-decoration: none;
 }
 
-main {
-    padding-top: 20px;
+nav ul li a:hover {
+    background-color: #555;
 }
 
-section {
-    background: #fff;
-    border: 1px solid #ddd;
-    margin-bottom: 20px;
+/* Main content styles */
+main {
     padding: 20px;
 }
 
-.contact-info ul {
-    list-style-type: none;
-    padding: 0;
+/* 3D effect for sections */
+section {
+    border: 1px solid #ddd;
+    margin: 20px 0;
+    padding: 20px;
+    background: #fff;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23); /* 3D effect */
+    transform: translate3d(0, 0, 0); /* For better performance on 3D transforms */
 }
 
-.contact-info ul li a {
-    color: #333;
+/* Parallax effect */
+.parallax {
+    height: 500px;
+    background-image: url('your-image-path.jpg');
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
+/* Footer styles */
 footer {
     background: #333;
     color: #fff;
@@ -59,4 +77,11 @@ footer {
     position: fixed;
     bottom: 0;
     width: 100%;
+}
+
+/* Media query for devices not supporting fixed backgrounds */
+@media (max-width: 768px) {
+    .parallax {
+        background-attachment: scroll;
+    }
 }
