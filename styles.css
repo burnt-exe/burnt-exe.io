@@ -1,106 +1,42 @@
-/* Basic Reset */
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
-
-body, h1, h2, h3, p, ul {
-    margin: 0;
-    padding: 0;
-}
-
 body {
-    font-family: 'Arial', sans-serif;
-    line-height: 1.6;
-    background: #f8f8f8;
+    font-family: Arial, sans-serif;
+    background-color: #f0f7ff; /* Lighter blue background */
+    color: #333;
+    margin: 0;
     padding: 20px;
 }
 
-/* Centering text globally */
-body, h1, h2, h3, p {
-    text-align: center;
-}
-
-/* Header styles */
 header {
-    background: #333;
+    background-color: #005792; /* Rich blue */
     color: #fff;
     padding: 20px 0;
-}
-
-/* Navigation styles */
-nav {
-    display: flex;
-    justify-content: center;
-    background: #444;
+    text-align: center;
 }
 
 nav ul {
     list-style: none;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+    padding: 0;
+    text-align: center;
+    background-color: #0074A2; /* Slightly different shade of blue */
 }
 
 nav ul li {
-    margin: 5px;
+    display: inline;
 }
 
 nav ul li a {
+    display: inline-block;
+    padding: 15px 20px;
     color: #fff;
-    padding: 10px 20px;
     text-decoration: none;
 }
 
 nav ul li a:hover {
-    background-color: #555;
+    background-color: #005792;
 }
-
-/* Main content and sections with flexbox for centering */
-main {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-section {
-    border: 1px solid #ddd;
-    margin: 20px 0;
-    padding: 20px;
-    width: 100%;
-    max-width: 800px; /* Adjust based on your design preference */
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
-    background: #fff;
-}
-
-/* Parallax effect */
-.parallax {
-    height: 500px;
-    background-image: url('your-image-path.jpg');
-    background-attachment: fixed;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-}
-
-/* Footer styles */
-footer {
-    background: #333;
-    color: #fff;
-    text-align: center;
-    padding: 10px 0;
-    width: 100%;
-}
-
-/* Media query for mobile devices */
-@media (max-width: 768px) {
-    nav ul {
-        flex-direction: column;
-    }
 
 .parallax {
-    height: 500px; /* You can adjust this height as needed */
+    height: 300px; /* Adjust as necessary */
     background-image: url('https://raw.githubusercontent.com/burnt-exe/burnt-exe.github.io/main/parallax.webp');
     background-attachment: fixed;
     background-position: center;
@@ -108,5 +44,18 @@ footer {
     background-size: cover;
 }
 
-    }
+section {
+    margin: 20px auto;
+    padding: 20px;
+    max-width: 800px; /* Adjust as necessary */
+    background-color: #e7eff6; /* Very light blue, for contrast */
+    border: 1px solid #b0c4de; /* Soft blue border */
+}
+
+footer {
+    background-color: #005792;
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+    margin-top: 20px;
 }
