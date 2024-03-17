@@ -1,105 +1,62 @@
-/* Basic reset for margins and paddings */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
 body {
-    font-family: 'Arial', sans-serif;
-    color: #333; /* Dark text for readability */
-    background: #f8f8f8; /* Light grey background for a clean look */
+    font-family: Arial, sans-serif;
+    color: #333;
+    background-color: #f8f8f8;
     line-height: 1.6;
+    margin: 0;
+    padding: 20px;
 }
 
-/* Header styling */
-.header {
-    background-color: #007bff; /* Blue background for the header */
-    color: #fff; /* White text for contrast */
+header {
+    background: #333;
+    color: #fff;
     padding: 20px 0;
     text-align: center;
 }
 
-.header .name {
-    font-size: 2em;
-    margin-bottom: 5px;
-}
-
-.header .title {
-    font-size: 1.2em;
-    font-weight: 300;
-}
-
-/* Navigation bar styling */
-.navigation {
-    background-color: #0056b3; /* Slightly darker blue for the navigation bar */
-    overflow: hidden;
-}
-
-.navigation .nav-list {
+nav ul {
+    background: #444;
     list-style-type: none;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    padding: 0;
+    text-align: center;
+}
+
+nav ul li {
+    display: inline;
+}
+
+nav ul li a {
+    color: #fff;
+    padding: 15px 20px;
+    text-decoration: none;
+}
+
+main {
+    padding-top: 20px;
+}
+
+section {
+    background: #fff;
+    border: 1px solid #ddd;
+    margin-bottom: 20px;
+    padding: 20px;
+}
+
+.contact-info ul {
+    list-style-type: none;
     padding: 0;
 }
 
-.navigation .nav-item a {
-    text-decoration: none;
-    color: white;
-    padding: 15px 20px;
-    display: block;
-    transition: background-color 0.3s;
+.contact-info ul li a {
+    color: #333;
 }
 
-.navigation .nav-item a:hover {
-    background-color: #004080; /* Even darker blue for hover effect */
-}
-
-/* Main content area */
-.main-content {
-    padding: 20px;
+footer {
+    background: #333;
+    color: #fff;
     text-align: center;
-}
-
-.main-content h1 {
-    font-size: 2.5em;
-    margin-bottom: 20px;
-    color: #007bff; /* Blue text for headings */
-}
-
-.main-content p {
-    font-size: 1.1em;
-    margin-bottom: 10px;
-}
-
-/* Footer styling */
-.footer {
-    background-color: #333; /* Grey-black background for the footer */
-    color: white;
-    text-align: center;
-    padding: 20px;
+    padding: 10px 0;
     position: fixed;
     bottom: 0;
     width: 100%;
-}
-
-.footer p {
-    margin: 0;
-    font-size: 1em;
-}
-
-/* Responsive design for smaller screens */
-@media (max-width: 768px) {
-    .navigation .nav-list {
-        flex-direction: column;
-    }
-
-    .main-content h1 {
-        font-size: 2em;
-    }
-
-    .main-content p {
-        font-size: 1em;
-    }
 }
