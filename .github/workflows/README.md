@@ -1,6 +1,4 @@
-Certainly! Below is an example of a professional and visually engaging `README.md` file, using various Markdown features:
-
-```markdown
+``` markdown
 # AwesomeProject
 
 ![Version](https://img.shields.io/badge/version-1.0.0-blue.svg)
