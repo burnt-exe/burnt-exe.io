@@ -99,7 +99,14 @@ footer {
         flex-direction: column;
     }
 
-    .parallax {
-        background-attachment: scroll;
+.parallax {
+    height: 500px; /* You can adjust this height as needed */
+    background-image: url('https://raw.githubusercontent.com/burnt-exe/burnt-exe.github.io/main/parallax.webp');
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
     }
 }
