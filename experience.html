@@ -5,52 +5,61 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Experience Timeline - Raydo Matthee</title>
     <link href="https://cdn.tailwindcss.com" rel="stylesheet">
+    <style>
+        /* Timeline styles */
+        .timeline {
+            border-left: 2px solid #D1D5DB; /* Light gray border */
+            position: relative;
+            padding: 20px 0;
+        }
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: -1px; /* Align with the border */
+            top: 0;
+            bottom: 0;
+            width: 2px; /* Match the border width */
+            background: #4F46E5; /* Tailwind indigo-500 */
+        }
+        .timeline-item {
+            margin-bottom: 40px;
+            position: relative;
+        }
+        .timeline-item:last-child {
+            margin-bottom: 0; /* Remove margin for the last item */
+        }
+        .timeline-marker {
+            position: absolute;
+            background: #4F46E5; /* Tailwind indigo-500 */
+            border: 3px solid #fff; /* White border */
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            left: -11px; /* Half the width of the marker with border */
+            top: 0;
+        }
+        .timeline-content {
+            padding-left: 30px;
+            padding-top: 5px;
+        }
+    </style>
 </head>
-<body class="bg-gray-900 text-white">
+<body class="bg-gray-900 text-white font-sans">
 
     <div class="container mx-auto px-4 py-10">
         <h2 class="text-4xl font-bold text-center mb-10">My Professional Journey</h2>
 
-        <div class="border-l-2 border-gray-700">
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="timeline-marker"></div>
+                <div class="timeline-content">
+                    <time class="text-sm font-normal text-gray-400">Oct 2020 - Present</time>
+                    <h3 class="text-lg font-semibold text-white mt-2">CEO at Skunkworks (Pty) Ltd</h3>
+                    <p class="text-base font-normal text-gray-400 mt-1">Leading top-notch managed cloud services for Microsoft and IBM technologies, overseeing training programs, and managing application development and integration.</p>
+                </div>
+            </div>
             
-            <!-- Timeline Item -->
-            <div class="ml-4 mb-10">
-                <div class="absolute w-6 h-6 bg-blue-500 rounded-full mt-1.5 -left-3 border border-gray-700"></div>
-                <time class="mb-1 text-sm font-normal leading-none text-gray-400">Oct 2020 - Present</time>
-                <h3 class="text-lg font-semibold text-white">CEO at Skunkworks (Pty) Ltd</h3>
-                <p class="mb-4 text-base font-normal text-gray-400">Leading top-notch managed cloud services for Microsoft and IBM technologies, overseeing training programs, and managing application development and integration.</p>
-            </div>
-
-            <div class="ml-4 mb-10">
-                <div class="absolute w-6 h-6 bg-blue-500 rounded-full mt-1.5 -left-3 border border-gray-700"></div>
-                <time class="mb-1 text-sm font-normal leading-none text-gray-400">Oct 2018 - Present</time>
-                <h3 class="text-lg font-semibold text-white">Company Owner at Bluemix (Pty) Ltd</h3>
-                <p class="mb-4 text-base font-normal text-gray-400">Leading efforts in providing exceptional IT instructor sourcing and customized training solutions, ensuring high levels of customer service and building long-lasting relationships.</p>
-            </div>
-
-            <div class="ml-4 mb-10">
-                <div class="absolute w-6 h-6 bg-blue-500 rounded-full mt-1.5 -left-3 border border-gray-700"></div>
-                <time class="mb-1 text-sm font-normal leading-none text-gray-400">Jan 2014 - Present</time>
-                <h3 class="text-lg font-semibold text-white">Co-Founder at Pause Online (Pty) Ltd</h3>
-                <p class="mb-4 text-base font-normal text-gray-400">Helped launch and grow an innovative digital marketing agency, developing website design and development services and implementing digital marketing strategies.</p>
-            </div>
-
-            <div class="ml-4 mb-10">
-                <div class="absolute w-6 h-6 bg-blue-500 rounded-full mt-1.5 -left-3 border border-gray-700"></div>
-                <time class="mb-1 text-sm font-normal leading-none text-gray-400">Sep 2013 - Present</time>
-                <h3 class="text-lg font-semibold text-white">Owner at Aero & General Properties (Pty) Ltd</h3>
-                <p class="mb-4 text-base font-normal text-gray-400">Managing low income rentals, property development, and ensuring high levels of customer support and service in the real estate domain.</p>
-            </div>
-
-            <div class="ml-4 mb-10">
-                <div class="absolute w-6 h-6 bg-blue-500 rounded-full mt-1.5 -left-3 border border-gray-700"></div>
-                <time class="mb-1 text-sm font-normal leading-none text-gray-400">Feb 2015 - Sep 2019</time>
-                <h3 class="text-lg font-semibold text-white">Executive Director at O.C Operations Central (Pty) Ltd</h3>
-                <p class="mb-4 text-base font-normal text-gray-400">Provided strategic advice on security risks and real estate preservation, helping clients avert risks through comprehensive strategies.</p>
-            </div>
-
-            <!-- Add more experiences as needed -->
-
+            <!-- Repeat for each item in your experience timeline -->
         </div>
     </div>
 
