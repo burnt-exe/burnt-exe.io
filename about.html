@@ -7,8 +7,8 @@
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <style>
-        .dropdown:hover .dropdown-content {
-            display: block;
+        .dropdown-content {
+            display: none;
         }
     </style>
 </head>
@@ -25,9 +25,9 @@
             <ul class="flex justify-center space-x-4">
                 <li><a href="index.html" class="hover:text-blue-400">Home</a></li>
                 <li><a href="projects.html" class="hover:text-blue-400">Projects</a></li>
-                <li class="dropdown">
+                <li class="dropdown" onclick="toggleDropdown(event)">
                     <a href="#" class="hover:text-blue-400">Achievements</a>
-                    <div class="dropdown-content hidden absolute bg-gray-900 text-white py-2 rounded-lg shadow-lg">
+                    <div class="dropdown-content absolute bg-gray-900 text-white py-2 rounded-lg shadow-lg">
                         <a href="#" class="block px-4 py-2 hover:bg-gray-800">IBM Champions</a>
                         <!-- Add more achievement pages as needed -->
                     </div>
@@ -60,6 +60,27 @@
         <p>&copy; 2024 burnt.exe. All rights reserved.</p>
         <p>Powered by Skunkworks creativity and innovation.</p>
     </footer>
+
+    <script>
+        function toggleDropdown(event) {
+            event.stopPropagation();
+            var dropdownContent = event.currentTarget.querySelector('.dropdown-content');
+            var isVisible = dropdownContent.style.display === 'block';
+            dropdownContent.style.display = isVisible ? 'none' : 'block';
+        }
+
+        window.onclick = function(event) {
+            if (!event.target.matches('.dropdown')) {
+                var dropdowns = document.getElementsByClassName("dropdown-content");
+                for (var i = 0; i < dropdowns.length; i++) {
+                    var openDropdown = dropdowns[i];
+                    if (openDropdown.style.display === 'block') {
+                        openDropdown.style.display = 'none';
+                    }
+                }
+            }
+        }
+    </script>
 
 </body>
 </html>
