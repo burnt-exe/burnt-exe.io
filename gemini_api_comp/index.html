@@ -16,12 +16,12 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
+            height: 100%;
             overflow: hidden;
         }
         .container {
             text-align: center;
-            max-width: 800px;
+            max-width: 1000px;
             padding: 20px;
             background: rgba(0, 0, 0, 0.7);
             border-radius: 20px;
@@ -38,6 +38,11 @@
             font-size: 2em;
             margin-bottom: 10px;
             color: #03A9F4;
+        }
+        h3 {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+            color: #FFC107;
         }
         p {
             font-size: 1.2em;
@@ -61,6 +66,19 @@
             background: linear-gradient(45deg, #FFC107, #FF5722);
             transform: scale(1.1);
         }
+        .column-container {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+        }
+        .column {
+            flex: 1;
+            padding: 20px;
+            margin: 10px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+        }
         ul {
             list-style-type: none;
             padding: 0;
@@ -78,6 +96,25 @@
         .logo {
             width: 100px;
             margin-bottom: 20px;
+        }
+        .badge {
+            width: 50px;
+            margin: 10px;
+        }
+        .table-container {
+            margin: 20px 0;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 10px;
+            text-align: center;
+            border: 1px solid #FFFFFF;
+        }
+        th {
+            background-color: #03A9F4;
         }
         @keyframes fadeIn {
             from { opacity: 0; }
@@ -101,6 +138,12 @@
                 font-size: 1.2em;
                 padding: 10px 20px;
             }
+            .column-container {
+                flex-direction: column;
+            }
+            .column {
+                margin: 10px 0;
+            }
         }
     </style>
 </head>
@@ -109,22 +152,80 @@
         <img src="https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png" alt="Google Logo" class="logo">
         <h1>Join the Google Gemini API Competition</h1>
         <h2>With Team Skunkworks</h2>
+        <div class="column-container">
+            <div class="column">
+                <h3>Definite Perks</h3>
+                <ul>
+                    <li>Opportunity to work with a skilled and dynamic team</li>
+                    <li>Hands-on experience with the latest Google Gemini API</li>
+                    <li>Networking with professionals in the field</li>
+                    <li>Potential for high rewards and recognition</li>
+                </ul>
+            </div>
+            <div class="column">
+                <h3>Potential Challenges</h3>
+                <ul>
+                    <li>Intense competition and tight deadlines</li>
+                    <li>High expectations and performance pressure</li>
+                    <li>Need for a strong commitment and time management</li>
+                </ul>
+            </div>
+        </div>
+        <div class="table-container">
+            <h3>Competition Details</h3>
+            <table>
+                <tr>
+                    <th>Category</th>
+                    <th>Prize</th>
+                </tr>
+                <tr>
+                    <td>Most Impactful App</td>
+                    <td>$300,000</td>
+                </tr>
+                <tr>
+                    <td>Most Useful App</td>
+                    <td>$200,000</td>
+                </tr>
+                <tr>
+                    <td>Most Creative App</td>
+                    <td>$200,000</td>
+                </tr>
+                <tr>
+                    <td>Best Flutter App</td>
+                    <td>$50,000</td>
+                </tr>
+                <tr>
+                    <td>Best Android App</td>
+                    <td>$50,000</td>
+                </tr>
+                <tr>
+                    <td>Best Web App</td>
+                    <td>$50,000</td>
+                </tr>
+                <tr>
+                    <td>Best Use of ARCore</td>
+                    <td>$50,000</td>
+                </tr>
+                <tr>
+                    <td>Best Use of Firebase</td>
+                    <td>$50,000</td>
+                </tr>
+                <tr>
+                    <td>Best Game App</td>
+                    <td>$50,000</td>
+                </tr>
+            </table>
+        </div>
         <p>We're inviting talented developers to join us in this exciting competition. Collaborate with industry experts, learn new skills, and have a chance to win amazing prizes including a custom electric 1981 DeLorean and a share of $1 million in cash prizes.</p>
-        <p>Definite Perks:
-            <ul>
-                <li>Opportunity to work with a skilled and dynamic team</li>
-                <li>Hands-on experience with the latest Google Gemini API</li>
-                <li>Networking with professionals in the field</li>
-                <li>Potential for high rewards and recognition</li>
-            </ul>
-        </p>
-        <p>Potential Challenges:
-            <ul>
-                <li>Intense competition and tight deadlines</li>
-                <li>High expectations and performance pressure</li>
-                <li>Need for a strong commitment and time management</li>
-            </ul>
-        </p>
+        <div>
+            <img src="https://raw.githubusercontent.com/burnt-exe/burnt-exe.io/f84f2a9e4594731dbe76f33187e1fb1e25984923/gemini_api_comp/2.svg" alt="Badge 2" class="badge">
+            <img src="https://raw.githubusercontent.com/burnt-exe/burnt-exe.io/f84f2a9e4594731dbe76f33187e1fb1e25984923/gemini_api_comp/1.svg" alt="Badge 1" class="badge">
+            <img src="https://raw.githubusercontent.com/burnt-exe/burnt-exe.io/f84f2a9e4594731dbe76f33187e1fb1e25984923/gemini_api_comp/3.svg" alt="Badge 3" class="badge">
+            <img src="https://raw.githubusercontent.com/burnt-exe/burnt-exe.io/f84f2a9e4594731dbe76f33187e1fb1e25984923/gemini_api_comp/4.svg" alt="Badge 4" class="badge">
+            <img src="https://raw.githubusercontent.com/burnt-exe/burnt-exe.io/f84f2a9e4594731dbe76f33187e1fb1e25984923/gemini_api_comp/5.svg" alt="Badge 5" class="badge">
+            <img src="https://raw.githubusercontent.com/burnt-exe/burnt-exe.io/f84f2a9e4594731dbe76f33187e1fb1e25984923/gemini_api_comp/6.svg" alt="Badge 6" class="badge">
+            <img src="https://raw.githubusercontent.com/burnt-exe/burnt-exe.io/f84f2a9e4594731dbe76f33187e1fb1e25984923/gemini_api_comp/7.svg" alt="Badge 7" class="badge">
+        </div>
         <a class="button" href="https://ai.google.dev/competition?utm_source=email&utm_medium=newsletter&utm_campaign=gfd-june24">Join the Competition</a>
     </div>
 </body>
