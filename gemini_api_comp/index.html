@@ -13,11 +13,6 @@
             color: #FFFFFF;
             margin: 0;
             padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100%;
-            overflow: hidden;
         }
         .container {
             text-align: center;
@@ -26,7 +21,7 @@
             background: rgba(0, 0, 0, 0.7);
             border-radius: 20px;
             box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
-            animation: fadeIn 2s ease-in-out;
+            margin: 20px auto;
         }
         h1 {
             font-size: 3em;
@@ -98,8 +93,8 @@
             margin-bottom: 20px;
         }
         .badge {
-            width: 50px;
-            margin: 10px;
+            width: 150px;
+            margin: 20px;
         }
         .table-container {
             margin: 20px 0;
@@ -144,6 +139,42 @@
             .column {
                 margin: 10px 0;
             }
+        }
+        .carousel {
+            position: relative;
+            width: 100%;
+            max-width: 1000px;
+            margin: 20px auto;
+            overflow: hidden;
+            border-radius: 15px;
+        }
+        .carousel-images {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+        .carousel-images img {
+            width: 100%;
+            height: auto;
+            max-height: 400px;
+        }
+        .carousel-buttons {
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            transform: translateY(-50%);
+        }
+        .carousel-button {
+            background: rgba(0, 0, 0, 0.5);
+            border: none;
+            color: white;
+            font-size: 2em;
+            cursor: pointer;
+            padding: 10px;
+        }
+        .carousel-button:hover {
+            background: rgba(0, 0, 0, 0.8);
         }
     </style>
 </head>
@@ -217,16 +248,42 @@
             </table>
         </div>
         <p>We're inviting talented developers to join us in this exciting competition. Collaborate with industry experts, learn new skills, and have a chance to win amazing prizes including a custom electric 1981 DeLorean and a share of $1 million in cash prizes.</p>
-        <div>
-            <img src="https://raw.githubusercontent.com/burnt-exe/burnt-exe.io/f84f2a9e4594731dbe76f33187e1fb1e25984923/gemini_api_comp/2.svg" alt="Badge 2" class="badge">
-            <img src="https://raw.githubusercontent.com/burnt-exe/burnt-exe.io/f84f2a9e4594731dbe76f33187e1fb1e25984923/gemini_api_comp/1.svg" alt="Badge 1" class="badge">
-            <img src="https://raw.githubusercontent.com/burnt-exe/burnt-exe.io/f84f2a9e4594731dbe76f33187e1fb1e25984923/gemini_api_comp/3.svg" alt="Badge 3" class="badge">
-            <img src="https://raw.githubusercontent.com/burnt-exe/burnt-exe.io/f84f2a9e4594731dbe76f33187e1fb1e25984923/gemini_api_comp/4.svg" alt="Badge 4" class="badge">
-            <img src="https://raw.githubusercontent.com/burnt-exe/burnt-exe.io/f84f2a9e4594731dbe76f33187e1fb1e25984923/gemini_api_comp/5.svg" alt="Badge 5" class="badge">
-            <img src="https://raw.githubusercontent.com/burnt-exe/burnt-exe.io/f84f2a9e4594731dbe76f33187e1fb1e25984923/gemini_api_comp/6.svg" alt="Badge 6" class="badge">
-            <img src="https://raw.githubusercontent.com/burnt-exe/burnt-exe.io/f84f2a9e4594731dbe76f33187e1fb1e25984923/gemini_api_comp/7.svg" alt="Badge 7" class="badge">
+        <div class="carousel">
+            <div class="carousel-images" id="carousel-images">
+                <img src="https://raw.githubusercontent.com/burnt-exe/burnt-exe.io/f84f2a9e4594731dbe76f33187e1fb1e25984923/gemini_api_comp/2.svg" alt="Badge 2" class="badge">
+                <img src="https://raw.githubusercontent.com/burnt-exe/burnt-exe.io/f84f2a9e4594731dbe76f33187e1fb1e25984923/gemini_api_comp/1.svg" alt="Badge 1" class="badge">
+                <img src="https://raw.githubusercontent.com/burnt-exe/burnt-exe.io/f84f2a9e4594731dbe76f33187e1fb1e25984923/gemini_api_comp/3.svg" alt="Badge 3" class="badge">
+                <img src="https://raw.githubusercontent.com/burnt-exe/burnt-exe.io/f84f2a9e4594731dbe76f33187e1fb1e25984923/gemini_api_comp/4.svg" alt="Badge 4" class="badge">
+                <img src="https://raw.githubusercontent.com/burnt-exe/burnt-exe.io/f84f2a9e4594731dbe76f33187e1fb1e25984923/gemini_api_comp/5.svg" alt="Badge 5" class="badge">
+                <img src="https://raw.githubusercontent.com/burnt-exe/burnt-exe.io/f84f2a9e4594731dbe76f33187e1fb1e25984923/gemini_api_comp/6.svg" alt="Badge 6" class="badge">
+                <img src="https://raw.githubusercontent.com/burnt-exe/burnt-exe.io/f84f2a9e4594731dbe76f33187e1fb1e25984923/gemini_api_comp/7.svg" alt="Badge 7" class="badge">
+            </div>
+            <div class="carousel-buttons">
+                <button class="carousel-button" id="prev-button">&#10094;</button>
+                <button class="carousel-button" id="next-button">&#10095;</button>
+            </div>
         </div>
         <a class="button" href="https://ai.google.dev/competition?utm_source=email&utm_medium=newsletter&utm_campaign=gfd-june24">Join the Competition</a>
     </div>
+    <script>
+        let currentIndex = 0;
+        const images = document.querySelectorAll('#carousel-images img');
+        const totalImages = images.length;
+
+        document.getElementById('next-button').addEventListener('click', () => {
+            currentIndex = (currentIndex + 1) % totalImages;
+            updateCarousel();
+        });
+
+        document.getElementById('prev-button').addEventListener('click', () => {
+            currentIndex = (currentIndex - 1 + totalImages) % totalImages;
+            updateCarousel();
+        });
+
+        function updateCarousel() {
+            const offset = -currentIndex * 100;
+            document.getElementById('carousel-images').style.transform = `translateX(${offset}%)`;
+        }
+    </script>
 </body>
 </html>
