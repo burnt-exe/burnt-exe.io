@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # Smile and Cry App
 
 This project displays a heartfelt letter using a React application with animations.
