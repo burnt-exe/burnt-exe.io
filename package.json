@@ -1,34 +1,40 @@
 {
-  ""name"": ""smile-and-cry-app"",
-  ""version"": ""1.0.0"",
-  ""private"": true,
-  ""dependencies"": {
-    ""react"": ""^17.0.2"",
-    ""react-dom"": ""^17.0.2"",
-    ""react-scripts"": ""4.0.3""
+  "name": "smile-and-cry-app",
+  "version": "1.0.0",
+  "private": true,
+  "dependencies": {
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-scripts": "4.0.3"
   },
-  ""scripts"": {
-    ""start"": ""react-scripts start"",
-    ""build"": ""react-scripts build"",
-    ""test"": ""react-scripts test"",
-    ""eject"": ""react-scripts eject""
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
-  ""eslintConfig"": {
-    ""extends"": [
-      ""react-app"",
-      ""react-app/jest""
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
     ]
   },
-  ""browserslist"": {
-    ""production"": [
-      ""last 2 versions"",
-      ""not dead"",
-      ""not < 0.2%""
+  "browserslist": {
+    "production": [
+      "last 2 versions",
+      "not dead",
+      "not < 0.2%"
     ],
-    ""development"": [
-      ""last 1 chrome version"",
-      ""last 1 firefox version"",
-      ""last 1 safari version""
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
     ]
+  },
+  "homepage": "http://burnt-exe.github.io/burnt-exe.io/smile-and-cry-app",
+  "devDependencies": {
+    "gh-pages": "^6.1.1"
   }
 }
