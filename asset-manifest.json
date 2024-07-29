@@ -1,0 +1,21 @@
+{
+  "files": {
+    "main.css": "/burnt-exe.io/smile-and-cry-app/static/css/main.31d18925.chunk.css",
+    "main.js": "/burnt-exe.io/smile-and-cry-app/static/js/main.56d6ebe8.chunk.js",
+    "main.js.map": "/burnt-exe.io/smile-and-cry-app/static/js/main.56d6ebe8.chunk.js.map",
+    "runtime-main.js": "/burnt-exe.io/smile-and-cry-app/static/js/runtime-main.33e6ac71.js",
+    "runtime-main.js.map": "/burnt-exe.io/smile-and-cry-app/static/js/runtime-main.33e6ac71.js.map",
+    "static/js/2.4c50dccc.chunk.js": "/burnt-exe.io/smile-and-cry-app/static/js/2.4c50dccc.chunk.js",
+    "static/js/2.4c50dccc.chunk.js.map": "/burnt-exe.io/smile-and-cry-app/static/js/2.4c50dccc.chunk.js.map",
+    "index.html": "/burnt-exe.io/smile-and-cry-app/index.html",
+    "static/css/main.31d18925.chunk.css.map": "/burnt-exe.io/smile-and-cry-app/static/css/main.31d18925.chunk.css.map",
+    "static/js/2.4c50dccc.chunk.js.LICENSE.txt": "/burnt-exe.io/smile-and-cry-app/static/js/2.4c50dccc.chunk.js.LICENSE.txt",
+    "static/media/App.css": "/burnt-exe.io/smile-and-cry-app/static/media/background.443c89c7.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.33e6ac71.js",
+    "static/js/2.4c50dccc.chunk.js",
+    "static/css/main.31d18925.chunk.css",
+    "static/js/main.56d6ebe8.chunk.js"
+  ]
+}
