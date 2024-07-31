@@ -1,6 +1,15 @@
+<<<<<<< HEAD
 version: 2
 updates:
   - package-ecosystem: "npm"
     directory: "/" # Location of the package.json file
     schedule:
       interval: "weekly"
+=======
+version: 2
+updates:
+  - package-ecosystem: "npm"
+    directory: "/" # Location of the package.json file
+    schedule:
+      interval: "weekly"
+>>>>>>> a612cff5757667de2dff971dadf75f13e535cac4
