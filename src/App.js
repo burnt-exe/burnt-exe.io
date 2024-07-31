@@ -1,51 +1,27 @@
 import React from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import Header from './components/Header';
+import Footer from './components/Footer';
+import Home from './pages/Home';
+import About from './pages/About';
 import './App.css';
-import backgroundImage from './background.png'; // Ensure the background image is in src directory
+import backgroundImage from './assets/images/background.png';
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <div className="container">
-        <div className="letter">
-          <h2>To Make You Smile and Cry</h2>
-          <p>
-            The sky is painted in hues of dawn, <br />
-            A canvas where the stars have just withdrawn. <br />
-            In the stillness, your strength emerges bright, <br />
-            A beacon of hope in the soft morning light.
-          </p>
-          <p>
-            Your journey, Miss Stewart, is a tale of grace, <br />
-            With every step, a new dawn you embrace. <br />
-            In Juke's eyes, your reflection does gleam, <br />
-            A hero's heart in a young child's dream.
-          </p>
-          <p>
-            Through the storms, your spirit remains bold, <br />
-            A story of love and courage to be told. <br />
-            In your unwavering love, a world does unfold, <br />
-            Where dreams take flight and hearts are consoled.
-          </p>
-          <p>
-            You are the melody in a symphony's rise, <br />
-            A testament to the strength in your eyes. <br />
-            Your love, a river that endlessly flows, <br />
-            In Juke's life, your legacy grows.
-          </p>
-          <p>
-            So when the nights are long, and the road seems tough, <br />
-            Remember, dear heart, you are enough. <br />
-            With every dawn, a new hope will arise, <br />
-            In the love that you share, in the light of your eyes.
-          </p>
-          <p>
-            With love and appreciation, <br />
-            <strong>Mr. Matthee</strong>
-          </p>
-        </div>
+    <Router>
+      <div className="App" style={{ backgroundImage: `url(${backgroundImage})` }}>
+        <Header />
+        <main className="main-content">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/about" element={<About />} />
+          </Routes>
+        </main>
+        <Footer />
       </div>
-    </div>
+    </Router>
   );
-}
+};
 
 export default App;
