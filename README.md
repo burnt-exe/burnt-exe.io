@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # Smile and Cry App
 
 ![React Badge](https://img.shields.io/badge/React-17.0.2-blue.svg)
@@ -87,5 +86,3 @@ Raydo Matthee, known in the digital world as @burnt-exe, leads Skunkworks with a
 We invite you to explore the repository and learn more about the transformative work we're doing at Skunkworks.
 
 _© 2024 Raydo Matthee. All Rights Reserved._
->>>>>>> origin/main
->>>>>>> a612cff5757667de2dff971dadf75f13e535cac4
