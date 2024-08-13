@@ -3,54 +3,164 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Love and Joy: A Delicate Balance</title>
+    <title>To Make You Smile and Cry - A Lyrical Poem</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Open+Sans:wght@300;400;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Lora:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 
         body {
             margin: 0;
-            padding: 0;
-            background: radial-gradient(circle, #ffafbd, #ffc3a0);
-            font-family: 'Open Sans', sans-serif;
-            color: #333;
+            padding: 20px;
+            background: radial-gradient(circle, #e3cec7, #f3e9e5);
+            font-family: 'Lora', serif;
+            color: #3e2723;
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
-            height: 100vh;
-            overflow: hidden;
-            perspective: 1000px;
+            min-height: 100vh;
+            box-sizing: border-box;
         }
 
-        .container {
-            background: rgba(255, 255, 255, 0.8);
-            padding: 2rem;
+        .banner {
+            width: 100%;
+            height: 200px;
+            background: url('https://www.example.com/your-cgi-generated-title-image.jpg') no-repeat center center;
+            background-size: cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            margin-bottom: 20px;
+        }
+
+        .banner h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            color: #ffffff;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .content {
+            width: 90%;
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.9);
             border-radius: 10px;
             box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
-            max-width: 700px;
-            text-align: center;
+            text-align: left;
             animation: fadeIn 2s ease-in-out, float 6s ease-in-out infinite;
-            transform: rotateX(15deg) rotateY(-10deg);
         }
 
-        h1 {
-            font-family: 'Great Vibes', cursive;
-            font-size: 3rem;
-            margin-bottom: 1rem;
-            color: #ff6f61;
-            animation: slideIn 1s ease-out;
+        h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            color: #8b5e3c;
+            text-align: center;
+            margin-bottom: 20px;
         }
 
-        p {
-            font-size: 1.2rem;
-            line-height: 1.6;
+        .description {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 20px;
+            color: #5d4037;
+        }
+
+        .description p {
+            margin: 10px 0;
+        }
+
+        .letter, .poem {
+            padding: 20px;
+            margin-bottom: 20px;
+            border: 2px solid #8b5e3c;
+            border-radius: 10px;
+            background: #fefefe;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .letter::before, .poem::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, rgba(163, 93, 80, 0.2), rgba(128, 66, 53, 0.2));
+            z-index: -1;
+            animation: animateFrame 10s linear infinite;
+        }
+
+        @keyframes animateFrame {
+            0% {
+                transform: translate(0, 0);
+            }
+            25% {
+                transform: translate(-10px, 10px);
+            }
+            50% {
+                transform: translate(10px, -10px);
+            }
+            75% {
+                transform: translate(-10px, -10px);
+            }
+            100% {
+                transform: translate(10px, 10px);
+            }
+        }
+
+        p, pre {
+            font-size: 1.1rem;
+            line-height: 1.8;
             margin: 0.5rem 0;
-            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            animation: textAppear 3s ease-out;
+            color: #4e342e;
+            white-space: pre-wrap;
         }
 
-        .highlight {
-            color: #ff6f61;
+        .poem-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            color: #6d4c41;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .stanza {
+            margin-bottom: 20px;
+            padding: 10px;
+            background: #f7e4e0;
+            border-left: 5px solid #8b5e3c;
+            border-radius: 5px;
+        }
+
+        .stanza p {
+            margin: 0;
+        }
+
+        .rhyme {
+            color: #8b5e3c;
             font-weight: bold;
+        }
+
+        footer {
+            background-color: #3e2723;
+            color: #ffffff;
+            padding: 20px;
+            text-align: center;
+            font-size: 0.9rem;
+            border-radius: 10px;
+            margin-top: 20px;
+            width: 90%;
+            max-width: 800px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        footer a {
+            color: #d4a5a5;
+            text-decoration: none;
         }
 
         @keyframes fadeIn {
@@ -62,26 +172,6 @@
             }
         }
 
-        @keyframes slideIn {
-            from {
-                transform: translateY(-100%);
-            }
-            to {
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes textAppear {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
         @keyframes float {
             0%, 100% {
                 transform: translateY(0);
@@ -90,35 +180,111 @@
                 transform: translateY(-10px);
             }
         }
+
+        @media screen and (max-width: 768px) {
+            .content {
+                padding: 15px;
+            }
+
+            p, pre {
+                font-size: 1rem;
+            }
+
+            .banner h1 {
+                font-size: 3rem;
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+            p, pre {
+                font-size: 0.9rem;
+            }
+
+            .banner h1 {
+                font-size: 2.5rem;
+            }
+        }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Love and Joy: A Delicate Balance</h1>
-        <p>In his early thirties, a young man stood</p>
-        <p>Looking for love, like so many would</p>
-        <p>He searched high and low, both far and wide</p>
-        <p>But no joy within him, he could find</p>
-        <p>He thought that love would fill the void</p>
-        <p>And bring him happiness, he'd always avoid</p>
-        <p>The truth that joy must come from within</p>
-        <p>For love alone, is not enough to win</p>
-        <p>He met many people, both kind and true</p>
-        <p>But none of them brought him joy anew</p>
-        <p>He realized, with a heavy heart</p>
-        <p>That searching for love, was tearing him apart</p>
-        <p>So he began a journey of self-discovery</p>
-        <p>To find happiness within, was his discovery</p>
-        <p>He found passions, hobbies, and dreams</p>
-        <p>And learned to love himself, or so it seems</p>
-        <p>Now he's a man who's content and happy</p>
-        <p>No longer searching, he's free and snappy</p>
-        <p>For he knows that joy must come from within</p>
-        <p>And love will come, when he least expects it to begin</p>
-        <p>So to those who seek love, he has this to say</p>
-        <p>Look within yourself, find joy today</p>
-        <p>For love alone, can never be enough</p>
-        <p>Without joy from within, life is tough</p>
+    <!-- Banner with CGI Title Graphic -->
+    <div class="banner">
+        <h1>To Make You Smile and Cry</h1>
     </div>
+
+    <!-- Content Container -->
+    <div class="content">
+        <h2>"A Mother's Love"</h2>
+        <div class="description">
+            <p>This page contains a **lyrical poem** titled "A Mother's Love," reflecting personal emotions and admiration towards a mother and her child. The poem is structured in quatrains, with a consistent rhyme scheme of AABB, reflecting the gentle and supportive tone of the poem.</p>
+            <p>The stanzas are visually highlighted, and the rhyming words are emphasized to help you better appreciate the structure and flow of the poem. Additionally, the letter preceding the poem conveys heartfelt admiration and support.</p>
+        </div>
+
+        <!-- Letter Section -->
+        <div class="letter">
+            <pre>
+Dear Miss Stewart,
+
+I wanted to take a moment to express my heartfelt admiration for you and your son, Juke. You are an extraordinary woman and an inspiration to those around you. Your strength, resilience, and devotion to your child are truly remarkable.
+
+As a mother, you are a shining example of courage, determination, and unwavering love. Juke is incredibly fortunate to have you in his life, and I have no doubt that he will grow and thrive under your guidance.
+
+Please know that you have a support system that believes in you and is rooting for your success. Even in challenging times, remember that you are not alone. You have our love, appreciation, and admiration for all that you do.
+
+With love and appreciation,
+Mr. Matthee
+            </pre>
+        </div>
+
+        <!-- Poem Section -->
+        <div class="poem">
+            <div class="poem-title">A Mother's Love</div>
+
+            <div class="stanza">
+                <p>The sky is brushed with dawn's soft <span class="rhyme">hues</span>,</p>
+                <p>A canvas where the stars <span class="rhyme">withdrew</span>.</p>
+                <p>In quiet hours, your strength takes <span class="rhyme">flight</span>,</p>
+                <p>A beacon born from morning's <span class="rhyme">light</span>.</p>
+            </div>
+
+            <div class="stanza">
+                <p>Your journey, Miss Stewart, a tale of <span class="rhyme">grace</span>,</p>
+                <p>Each step, a dawn you boldly <span class="rhyme">face</span>.</p>
+                <p>In Juke's eyes, your spirit <span class="rhyme">gleams</span>,</p>
+                <p>A hero's heart in childhood <span class="rhyme">dreams</span>.</p>
+            </div>
+
+            <div class="stanza">
+                <p>Through tempests wild, your will holds <span class="rhyme">fast</span>,</p>
+                <p>A love so strong, it ever <span class="rhyme">lasts</span>.</p>
+                <p>In your embrace, the world <span class="rhyme">unfolds</span>,</p>
+                <p>Where dreams take wing, and courage <span class="rhyme">molds</span>.</p>
+            </div>
+
+            <div class="stanza">
+                <p>You are the note in a symphony's <span class="rhyme">rise</span>,</p>
+                <p>A testament to the strength in your <span class="rhyme">eyes</span>.</p>
+                <p>Your love, a river that endlessly <span class="rhyme">flows</span>,</p>
+                <p>In Juke's life, your legacy <span class="rhyme">grows</span>.</p>
+            </div>
+
+            <div class="stanza">
+                <p>So when the nights are cold and <span class="rhyme">long</span>,</p>
+                <p>Remember, dear, you are the <span class="rhyme">song</span>.</p>
+                <p>With every dawn, hope finds its <span class="rhyme">way</span>,</p>
+                <p>In the love you give, in the light of <span class="rhyme">day</span>.</p>
+            </div>
+
+            <p style="text-align: center; margin-top: 20px;"><strong>With love and admiration,</strong><br>Mr. Matthee</p>
+        </div>
+    </div>
+
+    <!-- Footer Section -->
+    <footer>
+        <p>© 2024 Raydo Matthee. All rights reserved.</p>
+        <p>Author: Raydo Matthee | <a href="mailto:raydo@skunkworks.africa">raydo@skunkworks.africa</a></p>
+        <p>Disclosure: This content is for informational and educational purposes only.</p>
+        <p>Disclaimer: The views expressed are the author’s own and do not constitute professional advice.</p>
+    </footer>
 </body>
 </html>
