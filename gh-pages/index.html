@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chess Campaign Plan - Skunkworks Projects</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-dark-blue: #1F1F2E;
+            --primary-purple: #9A77CF;
+            --neutral-white: #FFFFFF;
+            --neutral-gray: #77787A;
+            --accent-black: #000000;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to bottom, var(--neutral-gray), var(--neutral-white));
+            color: var(--neutral-gray);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Header styling */
+        header {
+            background-color: var(--primary-dark-blue);
+            color: var(--neutral-white);
+            text-align: center;
+            padding: 2rem 0;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        header h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        header p {
+            font-size: 1.2rem;
+            opacity: 0.8;
+        }
+
+        /* Logo styling */
+        .logo-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 400px;
+            margin: 50px 0;
+            padding: 20px;
+            background-color: var(--neutral-white);
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .logo {
+            width: 80%;
+            max-width: 600px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 0 20px rgba(154, 119, 207, 0.5);
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        }
+
+        .logo:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 30px rgba(154, 119, 207, 0.8);
+        }
+
+        .logo video {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* Section styling */
+        .section {
+            background-color: var(--neutral-white);
+            padding: 40px;
+            margin-bottom: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .section h2 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2rem;
+            color: var(--primary-dark-blue);
+            margin-bottom: 20px;
+            border-bottom: 2px solid var(--primary-purple);
+            padding-bottom: 10px;
+        }
+
+        .section h3 {
+            font-size: 1.5rem;
+            color: var(--primary-dark-blue);
+            margin-top: 30px;
+            margin-bottom: 15px;
+        }
+
+        .section p, .section ul {
+            font-size: 1.1rem;
+            color: var(--neutral-gray);
+        }
+
+        .section ul {
+            padding-left: 20px;
+        }
+
+        .section li {
+            margin-bottom: 10px;
+        }
+
+        /* Timeline Table Styling */
+        .timeline-section {
+            background-color: var(--neutral-white);
+            border-radius: 8px;
+            padding: 40px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            margin: 20px 0;
+            background-color: var(--neutral-white);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        th, td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid var(--neutral-gray);
+        }
+
+        th {
+            background-color: var(--primary-purple);
+            color: var(--neutral-white);
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        /* Footer styling */
+        footer {
+            background-color: var(--primary-dark-blue);
+            color: var(--neutral-white);
+            text-align: center;
+            padding: 20px 0;
+            margin-top: 50px;
+        }
+
+        footer p {
+            margin: 0;
+            font-size: 1rem;
+        }
+
+        /* Button styling */
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary {
+            background-color: var(--primary-purple);
+            color: var(--neutral-white);
+            border: 1px solid var(--accent-black);
+        }
+
+        .btn-primary:hover {
+            background-color: #b08de0;
+            box-shadow: 0 0 10px rgba(154, 119, 207, 0.5);
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+            .section {
+                padding: 20px;
+            }
+            .logo-container {
+                height: auto;
+            }
+            .logo {
+                width: 100%;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideInFromLeft {
+            from { transform: translateX(-50px); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+
+        .fade-in {
+            animation: fadeIn 1s ease-out;
+        }
+
+        .slide-in {
+            animation: slideInFromLeft 0.5s ease-out;
+        }
+    </style>
+</head>
+<body>
+    <header class="fade-in">
+        <h1>Chess Campaign Plan</h1>
+        <p>Skunkworks Projects Initiative</p>
+    </header>
+
+    <div class="container">
+        <!-- Logo Section -->
+        <div class="logo-container fade-in">
+            <div class="logo">
+                <video src="https://github.com/skunkworks-africa/Media/raw/c084f25774334257b81b5e2dfe288ea1714ef763/projects/Skunkworks%20Project_logo.mp4" autoplay muted loop></video>
+            </div>
+        </div>
+
+        <!-- Content Sections -->
+        <div class="section slide-in">
+            <h2>1. Storytelling Approach</h2>
+            <p><strong>Goal:</strong> Create a compelling narrative that captures the hearts of potential sponsors, donors, and media.</p>
+            <h3>Steps:</h3>
+            <ul>
+                <li><strong>Share the Boys' Journey:</strong> Write a concise but impactful story about the boys, detailing how they came together, their passion for chess, and the challenges they've faced.</li>
+                <li><strong>Visual Impact:</strong> Collect visual media to humanize the story. Use the group photo and capture videos of the boys playing chess or talking about what chess means to them.</li>
+                <li><strong>Personal Testimonies:</strong> Gather written or video testimonies from the boys and their families on how chess has positively impacted their lives.</li>
+            </ul>
+            <a href="#" class="btn btn-primary">Learn More</a>
+        </div>
+
+        <div class="section slide-in">
+            <h2>2. Sponsorship and Fundraising Ideas</h2>
+            <p><strong>Goal:</strong> Raise funds and secure corporate sponsorships for chess equipment, jackets, and future opportunities such as competitions or educational support.</p>
+            <h3>Steps:</h3>
+            <ul>
+                <li><strong>Corporate Sponsorships:</strong> Reach out to local Johannesburg businesses and companies focused on youth development or education for sponsorship.</li>
+                <li><strong>Crowdfunding Campaign:</strong> Set up a GoFundMe or BackaBuddy campaign to raise funds for chess equipment, coaching, and personal development.</li>
+                <li><strong>Chess Tournaments for Charity:</strong> Host a chess tournament in Johannesburg to raise funds. Participants would pay an entry fee.</li>
+                <li><strong>Mentorship Programs:</strong> Partner with local organizations to create mentorship and career guidance programs for the boys.</li>
+            </ul>
+            <a href="#" class="btn btn-primary">Get Involved</a>
+        </div>
+
+        <div class="section slide-in">
+            <h2>3. Engagement and Media Outreach</h2>
+            <p><strong>Goal:</strong> Increase awareness and create engagement with the local community, sponsors, and media to amplify the campaign's impact.</p>
+            <h3>Steps:</h3>
+            <ul>
+                <li><strong>Partnership with Local NGOs:</strong> Contact the Sci-Bono Discovery Center to propose a partnership for educational outreach or sponsorship.</li>
+                <li><strong>Social Media Campaign:</strong> Create a hashtag and digital campaign to spread awareness. Use visuals and personal stories to encourage people to share and donate.</li>
+                <li><strong>Media Features:</strong> Reach out to local radio stations, newspapers, and blogs to feature the story of Emmanuel and the boys.</li>
+            </ul>
+            <a href="#" class="btn btn-primary">Spread the Word</a>
+        </div>
+
+        <!-- Timeline Table Section -->
+        <div class="timeline-section slide-in">
+            <h2>4. Timeline and Responsibilities</h2>
+            <table>
+                <tr>
+                    <th>Task</th>
+                    <th>Deadline</th>
+                    <th>Responsible</th>
+                </tr>
+                <tr>
+                    <td>Write the boys' story</td>
+                    <td>3 October 2024</td>
+                    <td>Raydo</td>
+                </tr>
+                <tr>
+                    <td>Collect visual media</td>
+                    <td>5 October 2024</td>
+                    <td>Emmanuel</td>
+                </tr>
+                <tr>
+                    <td>Gather personal testimonies</td>
+                    <td>6 October 2024</td>
+                    <td>Emmanuel</td>
+                </tr>
+                <tr>
+                    <td>Draft sponsorship proposals</td>
+                    <td>10 October 2024</td>
+                    <td>Raydo</td>
+                </tr>
+                <tr>
+                    <td>Set up crowdfunding campaign</td>
+                    <td>7 October 2024</td>
+                    <td>Raydo</td>
+                </tr>
+                <tr>
+                    <td>Plan and organize chess tournament</td>
+                    <td>20 October 2024</td>
+                    <td>Raydo</td>
+                </tr>
+                <tr>
+                    <td>Develop mentorship program proposal</td>
+                    <td>15 October 2024</td>
+                    <td>Raydo</td>
+                </tr>
+                <tr>
+                    <td>Contact local NGOs (Sci-Bono)</td>
+                    <td>12 October 2024</td>
+                    <td>Raydo</td>
+                </tr>
+                <tr>
+                    <td>Create social media content plan</td>
+                    <td>8 October 2024</td>
+                    <td>Emmanuel</td>
+                </tr>
+                <tr>
+                    <td>Reach out to media for coverage</td>
+                    <td>14 October 2024</td>
+                    <td>Raydo</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Skunkworks Chess Campaign | All Rights Reserved</p>
+    </footer>
+</body>
+</html>
