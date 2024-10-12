@@ -17,6 +17,7 @@
 - **Email**: [info@skunkworks.africa](mailto:info@skunkworks.africa)
 - **Profile**: [burnt-exe's Profile](https://burnt-exe.github.io/burnt-exe.io)
 - **Website**: [Skunkworks Website](https://www.skunkworks.africa)
+- **roadmap.sh**: [Project Single Page CV](https://roadmap.sh/projects/single-page-cv)
 
 ---
 
