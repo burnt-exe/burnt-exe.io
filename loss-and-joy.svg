@@ -1,0 +1,96 @@
+<svg viewBox="0 0 600 400" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital@0;1&amp;display=swap');
+    
+    .phrase {
+      font-family: 'Playfair Display', serif;
+      font-size: 16px;
+      fill: #333;
+      text-anchor: middle;
+      opacity: 0;
+      font-weight: 400;
+    }
+    
+    .underline {
+      stroke: #6a8caf;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-dasharray: 500;
+      stroke-dashoffset: 500;
+      fill: none;
+    }
+    
+    #phrase1 { animation: fade 12s infinite; }
+    #phrase2 { animation: fade 12s infinite 4s; }
+    #phrase3 { animation: fade 12s infinite 8s; }
+    
+    #underline1 { animation: drawLine 12s infinite; }
+    #underline2 { animation: drawLine 12s infinite 4s; }
+    #underline3 { animation: drawLine 12s infinite 8s; }
+    
+    @keyframes fade {
+      0% { opacity: 0; }
+      8.33% { opacity: 1; }
+      33.33% { opacity: 1; }
+      41.66% { opacity: 0; }
+      100% { opacity: 0; }
+    }
+    
+    @keyframes drawLine {
+      0% { stroke-dashoffset: 500; opacity: 0; }
+      8.33% { stroke-dashoffset: 0; opacity: 1; }
+      33.33% { stroke-dashoffset: 0; opacity: 1; }
+      41.66% { stroke-dashoffset: 500; opacity: 0; }
+      100% { stroke-dashoffset: 500; opacity: 0; }
+    }
+    
+    .accent {
+      font-style: italic;
+      fill: #6a8caf;
+    }
+  </style>
+
+  <!-- Background with subtle gradient -->
+  <defs>
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#f8f8f8" />
+      <stop offset="100%" style="stop-color:#f0f0f0" />
+    </linearGradient>
+  </defs>
+  <rect width="600" height="400" fill="url(#bgGradient)"/>
+  
+  <!-- Decorative elements -->
+  <circle cx="300" cy="200" r="130" fill="none" stroke="#e6e6e6" stroke-width="1" />
+  <circle cx="300" cy="200" r="150" fill="none" stroke="#e6e6e6" stroke-width="0.5" />
+
+  <!-- Phrase 1 -->
+  <g>
+    <text id="phrase1" x="300" y="170" class="phrase">
+      <tspan x="300" dy="0">Joy and <tspan class="accent">loss</tspan> are like two sides of the same coin —</tspan>
+      <tspan x="300" dy="28">you can't have one without the possibility of the other,</tspan>
+      <tspan x="300" dy="28">and that's what makes both so <tspan class="accent">precious</tspan> and painful.</tspan>
+    </text>
+    <path id="underline1" class="underline" d="M200,255 C250,258 350,258 400,255" />
+  </g>
+
+  <!-- Phrase 2 -->
+  <g>
+    <text id="phrase2" x="300" y="170" class="phrase">
+      <tspan x="300" dy="0"><tspan class="accent">Joy</tspan> and loss — forever bound as two sides of a coin.</tspan>
+      <tspan x="300" dy="28">Experiencing one deeply often means</tspan>
+      <tspan x="300" dy="28">you've known the <tspan class="accent">other</tspan> intimately.</tspan>
+    </text>
+    <path id="underline2" class="underline" d="M200,255 C250,258 350,258 400,255" />
+  </g>
+
+  <!-- Phrase 3 -->
+  <g>
+    <text id="phrase3" x="300" y="156" class="phrase">
+      <tspan x="300" dy="0">Life's greatest <tspan class="accent">joys</tspan> and deepest losses</tspan>
+      <tspan x="300" dy="28">are two sides of the same coin.</tspan>
+      <tspan x="300" dy="28">Flipping through experiences, we encounter both,</tspan>
+      <tspan x="300" dy="28">shaping us in <tspan class="accent">profound</tspan> ways.</tspan>
+    </text>
+    <path id="underline3" class="underline" d="M200,270 C250,273 350,273 400,270" />
+  </g>
+</svg>
