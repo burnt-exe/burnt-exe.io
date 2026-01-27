@@ -1,0 +1,1113 @@
+<!--
+  File: locationlocation-lkocation.html
+  Purpose: Mobile-first interactive quiz to help a family choose Gauteng home areas + school corridors for a 4-year-old.
+  Notes: Self-contained (no external libraries). Works offline.
+-->
+<!doctype html>
+<html lang="en-ZA">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Gauteng School + Home Area Quiz (Age 4 → Primary Path)</title>
+  <meta name="description" content="Interactive quiz to recommend Gauteng school corridors and home areas for a 4-year-old, with personalized conclusions and next steps." />
+  <style>
+    :root{
+      --bg:#0b1020;
+      --card:#121a33;
+      --card2:#0f1730;
+      --text:#e8ecff;
+      --muted:#b8c1ffcc;
+      --line:#2a3566;
+      --good:#5ef0a6;
+      --warn:#ffd166;
+      --bad:#ff6b6b;
+      --accent:#7aa2ff;
+      --accent2:#a78bfa;
+      --shadow: 0 10px 30px rgba(0,0,0,.35);
+      --radius: 18px;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Noto Sans", "Apple Color Emoji","Segoe UI Emoji";
+      background: radial-gradient(1200px 700px at 20% 10%, rgba(122,162,255,.18), transparent 60%),
+                  radial-gradient(900px 600px at 90% 30%, rgba(167,139,250,.14), transparent 60%),
+                  var(--bg);
+      color:var(--text);
+      line-height:1.4;
+    }
+    a{color:var(--accent); text-decoration:none}
+    a:hover{text-decoration:underline}
+    header{
+      padding: 28px 16px 12px;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+    .wrap{
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 0 16px 40px;
+    }
+    .hero{
+      display:flex;
+      gap:16px;
+      align-items:flex-start;
+      flex-wrap:wrap;
+    }
+    .title{
+      flex: 1 1 520px;
+      background: linear-gradient(180deg, rgba(18,26,51,.9), rgba(18,26,51,.65));
+      border:1px solid rgba(42,53,102,.7);
+      border-radius: var(--radius);
+      padding: 18px 18px 14px;
+      box-shadow: var(--shadow);
+    }
+    .title h1{
+      margin: 0 0 8px;
+      font-size: clamp(20px, 3vw, 30px);
+      letter-spacing: .2px;
+    }
+    .title p{
+      margin:0;
+      color: var(--muted);
+      font-size: 14.5px;
+    }
+    .chips{
+      margin-top: 12px;
+      display:flex; gap:8px; flex-wrap:wrap;
+    }
+    .chip{
+      font-size: 12.5px;
+      color: #dfe6ff;
+      background: rgba(122,162,255,.14);
+      border: 1px solid rgba(122,162,255,.28);
+      padding: 7px 10px;
+      border-radius: 999px;
+      user-select:none;
+    }
+
+    .side{
+      flex: 1 1 280px;
+      display:flex;
+      flex-direction:column;
+      gap:12px;
+      min-width: 260px;
+    }
+    .card{
+      background: linear-gradient(180deg, rgba(15,23,48,.92), rgba(15,23,48,.68));
+      border:1px solid rgba(42,53,102,.7);
+      border-radius: var(--radius);
+      padding: 16px;
+      box-shadow: var(--shadow);
+    }
+    .card h3{
+      margin:0 0 8px;
+      font-size: 14px;
+      letter-spacing: .2px;
+      color:#eaf0ff;
+    }
+    .card p, .card li{
+      margin:0;
+      color: var(--muted);
+      font-size: 13.5px;
+    }
+    .card ul{margin:10px 0 0 18px; padding:0}
+    .card li{margin: 6px 0}
+
+    .progress{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+      margin-top: 14px;
+    }
+    .bar{
+      flex: 1;
+      height: 10px;
+      background: rgba(232,236,255,.08);
+      border:1px solid rgba(42,53,102,.7);
+      border-radius: 999px;
+      overflow:hidden;
+    }
+    .bar > div{
+      height:100%;
+      width:0%;
+      background: linear-gradient(90deg, var(--accent), var(--accent2));
+      border-radius: 999px;
+      transition: width .35s ease;
+    }
+    .progress small{
+      color: var(--muted);
+      font-size: 12.5px;
+      white-space:nowrap;
+    }
+
+    main{
+      margin-top: 16px;
+      display:grid;
+      grid-template-columns: 1fr;
+      gap: 14px;
+    }
+
+    .qcard{
+      background: linear-gradient(180deg, rgba(18,26,51,.86), rgba(18,26,51,.62));
+      border:1px solid rgba(42,53,102,.7);
+      border-radius: var(--radius);
+      padding: 16px;
+      box-shadow: var(--shadow);
+    }
+    .qtop{
+      display:flex;
+      justify-content:space-between;
+      align-items:flex-start;
+      gap:12px;
+      margin-bottom: 10px;
+    }
+    .qnum{
+      font-size: 12px;
+      color: rgba(232,236,255,.65);
+      background: rgba(232,236,255,.08);
+      border:1px solid rgba(42,53,102,.7);
+      padding: 6px 10px;
+      border-radius: 999px;
+      user-select:none;
+      white-space:nowrap;
+    }
+    .qtitle{
+      margin:0;
+      font-size: 15.5px;
+      color:#f1f4ff;
+    }
+    .qhelp{
+      margin: 6px 0 0;
+      color: var(--muted);
+      font-size: 13.2px;
+    }
+
+    .opts{
+      display:grid;
+      grid-template-columns: 1fr;
+      gap: 10px;
+      margin-top: 12px;
+    }
+    .opt{
+      display:flex;
+      gap: 10px;
+      align-items:flex-start;
+      background: rgba(232,236,255,.06);
+      border: 1px solid rgba(42,53,102,.7);
+      border-radius: 14px;
+      padding: 12px 12px;
+      cursor:pointer;
+      transition: transform .08s ease, border-color .2s ease, background .2s ease;
+    }
+    .opt:hover{
+      transform: translateY(-1px);
+      border-color: rgba(122,162,255,.55);
+      background: rgba(122,162,255,.10);
+    }
+    .opt input{margin-top: 2px}
+    .opt strong{display:block; font-size: 13.8px}
+    .opt span{display:block; color: var(--muted); font-size: 13px; margin-top: 2px}
+
+    .controls{
+      display:flex;
+      flex-wrap:wrap;
+      gap: 10px;
+      justify-content:space-between;
+      align-items:center;
+      margin-top: 16px;
+    }
+    .btns{
+      display:flex; gap:10px; flex-wrap:wrap;
+    }
+    button{
+      appearance:none;
+      border: 1px solid rgba(42,53,102,.9);
+      background: rgba(232,236,255,.08);
+      color: var(--text);
+      padding: 10px 14px;
+      border-radius: 12px;
+      cursor:pointer;
+      font-weight: 650;
+      letter-spacing:.15px;
+      transition: transform .08s ease, background .2s ease, border-color .2s ease;
+    }
+    button:hover{
+      transform: translateY(-1px);
+      border-color: rgba(122,162,255,.65);
+      background: rgba(122,162,255,.14);
+    }
+    button.primary{
+      background: linear-gradient(90deg, rgba(122,162,255,.95), rgba(167,139,250,.95));
+      border-color: transparent;
+      color:#081022;
+    }
+    button.primary:hover{
+      background: linear-gradient(90deg, rgba(122,162,255,1), rgba(167,139,250,1));
+      transform: translateY(-1px);
+    }
+    button.danger{
+      border-color: rgba(255,107,107,.6);
+      background: rgba(255,107,107,.08);
+    }
+    button.danger:hover{
+      background: rgba(255,107,107,.14);
+    }
+    .hint{
+      color: rgba(255,209,102,.92);
+      font-size: 12.5px;
+    }
+
+    /* Results */
+    .results{
+      display:none;
+      margin-top: 10px;
+    }
+    .grid2{
+      display:grid;
+      grid-template-columns: 1fr;
+      gap: 12px;
+    }
+    @media(min-width:900px){
+      main{grid-template-columns: 1.3fr .7fr}
+      .grid2{grid-template-columns: 1fr 1fr}
+    }
+    .badge{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding: 7px 10px;
+      border-radius: 999px;
+      border:1px solid rgba(42,53,102,.7);
+      background: rgba(232,236,255,.06);
+      font-size: 12.5px;
+      color: rgba(232,236,255,.85);
+      margin: 6px 6px 0 0;
+    }
+    .dot{width:10px;height:10px;border-radius:999px;background:var(--accent)}
+    .dot.good{background:var(--good)}
+    .dot.warn{background:var(--warn)}
+    .dot.bad{background:var(--bad)}
+    .mini{
+      font-size: 12.8px;
+      color: var(--muted);
+    }
+    .kpi{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-top: 10px;
+    }
+    .kpi > div{
+      background: rgba(232,236,255,.06);
+      border:1px solid rgba(42,53,102,.7);
+      border-radius: 14px;
+      padding: 12px;
+    }
+    .kpi b{display:block; font-size: 15px}
+    .kpi small{color: var(--muted)}
+    .list{
+      margin: 10px 0 0 18px;
+      color: var(--muted);
+      font-size: 13.5px;
+    }
+    .callout{
+      border-left: 3px solid rgba(122,162,255,.9);
+      padding: 10px 12px;
+      background: rgba(122,162,255,.10);
+      border-radius: 12px;
+      color: rgba(232,236,255,.88);
+      font-size: 13.5px;
+    }
+
+    .footer{
+      margin-top: 14px;
+      color: rgba(232,236,255,.55);
+      font-size: 12.5px;
+      text-align:center;
+    }
+
+    @media print{
+      body{background:#fff;color:#000}
+      .title,.card,.qcard{box-shadow:none}
+      button,.progress,.hint,.footer{display:none !important}
+      .results{display:block !important}
+      a{color:#000;text-decoration:underline}
+    }
+  </style>
+</head>
+
+<body>
+<header>
+  <div class="hero">
+    <div class="title">
+      <h1>Gauteng Home + School Corridor Quiz (for Liam, age 4)</h1>
+      <p>
+        This quiz helps you choose a <b>location strategy</b> in Gauteng by balancing commute, budget, learning style,
+        safety, and schooling pathway. At the end you’ll get a <b>personalized conclusion</b>,
+        suggested <b>corridors</b>, and a <b>shortlist starter</b> of schools to investigate.
+      </p>
+      <div class="chips">
+        <div class="chip">Mobile-first</div>
+        <div class="chip">Offline</div>
+        <div class="chip">Personalized results</div>
+        <div class="chip">Print-friendly</div>
+      </div>
+
+      <div class="progress" aria-label="Quiz progress">
+        <div class="bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+          <div id="barFill"></div>
+        </div>
+        <small id="progressText">0 / 12</small>
+      </div>
+    </div>
+
+    <div class="side">
+      <div class="card">
+        <h3>Why this matters (in plain terms)</h3>
+        <p>
+          Where you live decides what schools are realistic day-to-day. The “best school” on paper can become
+          a daily stress machine if the commute, aftercare, or culture doesn’t fit Liam.
+        </p>
+        <ul>
+          <li>Stability + fit usually beats “famous name + chaos”.</li>
+          <li>Pick areas with <b>multiple</b> good options (Plan A/B/C).</li>
+          <li>At age 4, play-based development and safety routines matter a lot.</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h3>How to use your result</h3>
+        <p>
+          Treat the outcome as a <b>starting strategy</b>. Then shortlist 3–6 schools, visit, and confirm admissions rules.
+        </p>
+        <p style="margin-top:10px" class="mini">
+          Tip: Print results and use them as a “family decision document”.
+        </p>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="wrap">
+  <main>
+    <section class="qcard" id="quizCard" aria-label="Quiz">
+      <div class="qtop">
+        <div>
+          <div class="qnum" id="qNum">Question 1 of 12</div>
+          <h2 class="qtitle" id="qTitle">Loading…</h2>
+          <p class="qhelp" id="qHelp"></p>
+        </div>
+        <div class="qnum" id="qCategory">Category</div>
+      </div>
+
+      <div class="opts" id="opts"></div>
+
+      <div class="controls">
+        <div class="btns">
+          <button id="backBtn" type="button">Back</button>
+          <button id="nextBtn" type="button" class="primary">Next</button>
+        </div>
+        <div class="btns">
+          <button id="saveBtn" type="button">Save</button>
+          <button id="resetBtn" type="button" class="danger">Reset</button>
+        </div>
+        <div class="hint" id="hint"></div>
+      </div>
+    </section>
+
+    <aside class="card" aria-label="Quick guide">
+      <h3>Quick guide</h3>
+      <p>
+        Answer honestly. This quiz isn’t judging you — it’s protecting your future sanity.
+      </p>
+      <ul>
+        <li><b>Commute</b> and <b>aftercare</b> decide family quality-of-life.</li>
+        <li><b>Learning style</b> decides whether Liam thrives or just “survives”.</li>
+        <li><b>Budget reality</b> avoids a midstream school change (hard on kids).</li>
+      </ul>
+      <p style="margin-top:10px" class="mini">
+        Results include suggested corridors + sample schools to research and map links you can open.
+      </p>
+    </aside>
+  </main>
+
+  <section class="results" id="results" aria-label="Results">
+    <div class="qcard">
+      <div class="qtop">
+        <div>
+          <div class="qnum">Your Results</div>
+          <h2 class="qtitle" id="resTitle">Conclusion</h2>
+          <p class="qhelp" id="resSubtitle"></p>
+        </div>
+        <div class="qnum" id="resScorePill">Score</div>
+      </div>
+
+      <div id="badges"></div>
+
+      <div class="kpi" aria-label="Key metrics">
+        <div>
+          <b id="kpiCorridor">—</b>
+          <small>Best-fit corridor</small>
+        </div>
+        <div>
+          <b id="kpiCommute">—</b>
+          <small>Commute tolerance</small>
+        </div>
+        <div>
+          <b id="kpiBudget">—</b>
+          <small>Budget posture</small>
+        </div>
+        <div>
+          <b id="kpiStyle">—</b>
+          <small>Learning environment</small>
+        </div>
+      </div>
+
+      <div style="margin-top:12px" class="callout" id="callout"></div>
+
+      <div class="grid2" style="margin-top:12px">
+        <div class="card" style="box-shadow:none">
+          <h3>Recommended home areas (start your property search here)</h3>
+          <ul class="list" id="homeAreas"></ul>
+        </div>
+
+        <div class="card" style="box-shadow:none">
+          <h3>Starter shortlist (schools to investigate)</h3>
+          <ul class="list" id="schoolList"></ul>
+          <p class="mini" style="margin-top:10px">
+            These are “research targets” (visit + verify admissions). Map links are included.
+          </p>
+        </div>
+      </div>
+
+      <div class="grid2" style="margin-top:12px">
+        <div class="card" style="box-shadow:none">
+          <h3>Next steps (7–14 days)</h3>
+          <ul class="list" id="nextSteps"></ul>
+        </div>
+        <div class="card" style="box-shadow:none">
+          <h3>Reality-check questions (the ones that save you)</h3>
+          <ul class="list" id="realityChecks"></ul>
+        </div>
+      </div>
+
+      <div class="controls" style="margin-top:14px">
+        <div class="btns">
+          <button type="button" class="primary" id="printBtn">Print / Save PDF</button>
+          <button type="button" id="copyBtn">Copy Summary</button>
+          <button type="button" id="restartBtn">Restart Quiz</button>
+        </div>
+        <div class="mini" id="copyStatus"></div>
+      </div>
+
+      <div class="footer">
+        Built for real families making high-stakes decisions. This output is guidance — always confirm admissions, zoning, and fees directly with schools.
+      </div>
+    </div>
+  </section>
+</div>
+
+<script>
+(() => {
+  // --- Data model ---
+  const questions = [
+    {
+      id: "corridor_bias",
+      category: "Location",
+      title: "Where do you prefer your daily life to be centered?",
+      help: "This anchors your commute and the school ecosystem you’ll realistically use.",
+      hint: "If you’re unsure, pick the option that best matches where you work most days.",
+      options: [
+        { label: "Johannesburg North (Sandton/Randburg)", desc: "Bryanston, Rivonia, Morningside, Sunninghill, Randburg", score: { jhbN: 3 } },
+        { label: "Johannesburg Central-North (Rosebank/Parkview)", desc: "Parkview, Greenside, Rosebank, Houghton, Melrose", score: { jhbCN: 3 } },
+        { label: "Johannesburg East (Bedfordview/Edenvale)", desc: "Bedfordview, Edenvale, Linksfield, Senderwood", score: { jhbE: 3 } },
+        { label: "Pretoria East", desc: "Waterkloof, Brooklyn, Menlo Park, Lynnwood, Garsfontein", score: { ptaE: 3 } },
+        { label: "Centurion", desc: "Irene, Midstream, Eldoraigne, Lyttelton", score: { cent: 3 } },
+      ]
+    },
+    {
+      id: "commute",
+      category: "Logistics",
+      title: "What daily school commute is sustainable for your family (one-way)?",
+      help: "Commute is the silent destroyer of routines (and mornings).",
+      hint: "Choose what you can do for 10+ years without hating your life.",
+      options: [
+        { label: "0–15 minutes", desc: "We want the school very close", score: { commuteLow: 3 } },
+        { label: "15–30 minutes", desc: "Manageable if traffic isn’t brutal", score: { commuteMed: 2 } },
+        { label: "30–45 minutes", desc: "We can handle it with planning", score: { commuteHigh: 2 } },
+        { label: "45+ minutes", desc: "We’ll do it for the right school", score: { commuteVeryHigh: 2 } },
+      ]
+    },
+    {
+      id: "aftercare",
+      category: "Family Time",
+      title: "Aftercare needs:",
+      help: "Aftercare quality matters if work hours are real and not imaginary.",
+      hint: "Good aftercare = calmer evenings + fewer conflicts.",
+      options: [
+        { label: "We’ll need aftercare most days", desc: "School must have structured, safe aftercare", score: { aftercareNeed: 3 } },
+        { label: "We might use aftercare occasionally", desc: "Nice to have", score: { aftercareNeed: 1 } },
+        { label: "We won’t use aftercare", desc: "We can do early pickup reliably", score: { aftercareNeed: 0 } },
+      ]
+    },
+    {
+      id: "budget",
+      category: "Budget",
+      title: "Your budget posture for schooling (fees + extras):",
+      help: "A forced school change midstream is hard on kids. Budget realism is kindness.",
+      hint: "Include uniforms, transport, extra lessons, sport, excursions.",
+      options: [
+        { label: "Public/CAPS focus", desc: "Strong public school + smart support at home", score: { budgetPublic: 3 } },
+        { label: "Mid-fee private network", desc: "Predictable fees; structured programmes", score: { budgetMid: 3 } },
+        { label: "Premium independent", desc: "We can invest heavily long-term", score: { budgetPremium: 3 } },
+        { label: "Not sure yet", desc: "We need clarity before committing", score: { budgetUnclear: 2 } },
+      ]
+    },
+    {
+      id: "learning_env",
+      category: "Learning Style",
+      title: "What learning environment would suit Liam best (right now)?",
+      help: "At 4, fit > prestige. The goal is confidence, not pressure.",
+      hint: "Think: how he behaves in noisy/busy spaces.",
+      options: [
+        { label: "Play-based & warm", desc: "Gentle structure; emotional safety first", score: { envPlay: 3 } },
+        { label: "Balanced structure", desc: "Routine + play; clear expectations", score: { envBalanced: 3 } },
+        { label: "Highly structured & academic", desc: "Fast pace; strong discipline; early academics", score: { envStructured: 3 } },
+      ]
+    },
+    {
+      id: "class_size",
+      category: "School Quality",
+      title: "Class size preference:",
+      help: "Smaller classes often mean more individual attention (but not always).",
+      hint: "Ask schools teacher-to-learner ratios in Grade R/1.",
+      options: [
+        { label: "Small classes are essential", desc: "We want high attention and support", score: { classSmall: 3 } },
+        { label: "Moderate is fine", desc: "As long as teaching quality is strong", score: { classModerate: 2 } },
+        { label: "Large is okay", desc: "If systems are good and culture is strong", score: { classLarge: 1 } },
+      ]
+    },
+    {
+      id: "support",
+      category: "Support",
+      title: "Learning support expectations:",
+      help: "You’re not planning for problems — you’re building resilience.",
+      hint: "Even strong kids benefit from good support structures.",
+      options: [
+        { label: "We want strong in-school support", desc: "Access to OT/speech/learning support", score: { supportHigh: 3 } },
+        { label: "Basic support is enough", desc: "Referrals when needed", score: { supportMed: 2 } },
+        { label: "Not a deciding factor", desc: "We’ll source externally if needed", score: { supportLow: 1 } },
+      ]
+    },
+    {
+      id: "safety",
+      category: "Lifestyle",
+      title: "Home environment preference:",
+      help: "Safety + routines often matter more than square meters.",
+      hint: "Be honest about what makes you sleep well at night.",
+      options: [
+        { label: "Estate / controlled access", desc: "Predictability, safety, family amenities", score: { estate: 3 } },
+        { label: "Leafy suburb", desc: "Space and community, security managed privately", score: { suburb: 3 } },
+        { label: "Either is fine", desc: "We’ll decide based on value", score: { flexible: 2 } },
+      ]
+    },
+    {
+      id: "values",
+      category: "Values",
+      title: "School values/culture preference:",
+      help: "Culture is what your child breathes 5 days a week.",
+      hint: "This is not about judgement — it’s about alignment.",
+      options: [
+        { label: "Faith-based is preferred", desc: "We want that value framework", score: { valuesFaith: 3 } },
+        { label: "Secular/neutral is preferred", desc: "Diversity and neutrality matters", score: { valuesSecular: 3 } },
+        { label: "Open to either", desc: "Fit matters more than label", score: { valuesOpen: 2 } },
+      ]
+    },
+    {
+      id: "future_path",
+      category: "Future",
+      title: "What’s your ideal long-term pathway?",
+      help: "Think in pathways: pre-primary → primary → high school options.",
+      hint: "No path is perfect — but some align better with your goals.",
+      options: [
+        { label: "Strong public → strong public high", desc: "CAPS track, focus on stability + community", score: { pathPublic: 3 } },
+        { label: "Independent (IEB) track", desc: "Consistency, smaller systems, often strong support", score: { pathIEB: 3 } },
+        { label: "International-minded (Cambridge/IB style)", desc: "Mobility, global options (where available)", score: { pathIntl: 3 } },
+        { label: "Not sure yet", desc: "We’ll decide based on admissions + fit", score: { pathUnclear: 2 } },
+      ]
+    },
+    {
+      id: "weekend_life",
+      category: "Lifestyle",
+      title: "Your ideal weekend life (family rhythm):",
+      help: "Your suburb should support your family culture, not fight it.",
+      hint: "This impacts where you’ll actually be happy living.",
+      options: [
+        { label: "Parks, cafés, museums, community events", desc: "Walkability + central access matters", score: { lifeUrban: 3 } },
+        { label: "Sports facilities, clubs, family estates", desc: "Amenities + structured activities matter", score: { lifeEstate: 3 } },
+        { label: "Space, quiet, backyard time", desc: "Lower density and calm matters", score: { lifeQuiet: 3 } },
+      ]
+    },
+    {
+      id: "stress",
+      category: "Family Resilience",
+      title: "When life gets chaotic, what breaks first?",
+      help: "This reveals your real constraint. Designing around it is smart, not pessimistic.",
+      hint: "This question is the ‘truth serum’ of the quiz.",
+      options: [
+        { label: "Time (schedules collapse)", desc: "We need closeness + simple routines", score: { constraintTime: 3 } },
+        { label: "Energy (we burn out)", desc: "We need calmer pace + less driving", score: { constraintEnergy: 3 } },
+        { label: "Budget (surprises hurt)", desc: "We need predictable costs", score: { constraintBudget: 3 } },
+        { label: "Support (we need help)", desc: "We need family amenities + aftercare", score: { constraintSupport: 3 } },
+      ]
+    },
+  ];
+
+  // Corridor knowledge base (kept concise & practical; you can expand later)
+  const corridors = {
+    jhbN: {
+      name: "Johannesburg North (Sandton / Bryanston / Rivonia)",
+      homeAreas: ["Bryanston", "Rivonia", "Morningside", "Sunninghill", "Paulshof", "Lonehill"],
+      schools: [
+        { name: "Bryanston Primary School", map: "https://www.google.com/maps/search/?api=1&query=Bryanston+Primary+School" },
+        { name: "Rivonia Primary School", map: "https://www.google.com/maps/search/?api=1&query=Rivonia+Primary+School" },
+        { name: "St Stithians Boys’ Prep", map: "https://www.google.com/maps/search/?api=1&query=St+Stithians+Boys+College+Prep" },
+        { name: "St David’s Marist Inanda (Prep)", map: "https://www.google.com/maps/search/?api=1&query=St+Davids+Marist+Inanda+Preparatory" },
+        { name: "Redhill School (Foundation Phase)", map: "https://www.google.com/maps/search/?api=1&query=Redhill+School+Johannesburg" },
+      ]
+    },
+    jhbCN: {
+      name: "JHB Central-North (Rosebank / Parkview / Greenside / Houghton)",
+      homeAreas: ["Parkview", "Parkhurst", "Greenside", "Rosebank", "Melrose", "Houghton", "Craighall/Craighall Park"],
+      schools: [
+        { name: "Parkview Senior Primary", map: "https://www.google.com/maps/search/?api=1&query=Parkview+Senior+Primary+School" },
+        { name: "Saxonwold Primary", map: "https://www.google.com/maps/search/?api=1&query=Saxonwold+Primary+School" },
+        { name: "Rosebank Primary", map: "https://www.google.com/maps/search/?api=1&query=Rosebank+Primary+School+Johannesburg" },
+        { name: "St John’s College Preparatory", map: "https://www.google.com/maps/search/?api=1&query=St+John%27s+College+Preparatory+Houghton" },
+        { name: "King David (Primary campus options)", map: "https://www.google.com/maps/search/?api=1&query=King+David+School+Johannesburg+Primary" },
+      ]
+    },
+    jhbE: {
+      name: "Johannesburg East (Bedfordview / Edenvale / Linksfield)",
+      homeAreas: ["Bedfordview", "Edenvale", "Linksfield", "Senderwood", "Dowerglen"],
+      schools: [
+        { name: "Bedfordview Primary School", map: "https://www.google.com/maps/search/?api=1&query=Bedfordview+Primary+School" },
+        { name: "St Benedict’s Preparatory", map: "https://www.google.com/maps/search/?api=1&query=St+Benedict%27s+Preparatory+Bedfordview" },
+        { name: "Saheti School", map: "https://www.google.com/maps/search/?api=1&query=Saheti+School" },
+        { name: "Edenvale primary options", map: "https://www.google.com/maps/search/?api=1&query=Primary+School+Edenvale" },
+        { name: "Linksfield area primary options", map: "https://www.google.com/maps/search/?api=1&query=Primary+School+Linksfield" },
+      ]
+    },
+    ptaE: {
+      name: "Pretoria East (Waterkloof / Brooklyn / Menlo Park / Lynnwood)",
+      homeAreas: ["Waterkloof", "Brooklyn", "Menlo Park", "Lynnwood", "Garsfontein", "Faerie Glen"],
+      schools: [
+        { name: "Waterkloof House Preparatory (WHPS)", map: "https://www.google.com/maps/search/?api=1&query=Waterkloof+House+Preparatory+School" },
+        { name: "Pretoria Boys High (future high school option)", map: "https://www.google.com/maps/search/?api=1&query=Pretoria+Boys+High+School" },
+        { name: "Brooklyn / Menlo Park primary options", map: "https://www.google.com/maps/search/?api=1&query=Primary+School+Brooklyn+Pretoria" },
+        { name: "Lynnwood / Garsfontein primary options", map: "https://www.google.com/maps/search/?api=1&query=Primary+School+Lynnwood+Pretoria" },
+        { name: "Pretoria East independent options", map: "https://www.google.com/maps/search/?api=1&query=Independent+School+Pretoria+East" },
+      ]
+    },
+    cent: {
+      name: "Centurion (Irene / Midstream / Eldoraigne)",
+      homeAreas: ["Irene", "Midstream", "Eldoraigne", "Lyttelton", "Highveld", "Rooihuiskraal"],
+      schools: [
+        { name: "Southdowns College", map: "https://www.google.com/maps/search/?api=1&query=Southdowns+College" },
+        { name: "Cornwall Hill College", map: "https://www.google.com/maps/search/?api=1&query=Cornwall+Hill+College" },
+        { name: "Trinityhouse (Centurion)", map: "https://www.google.com/maps/search/?api=1&query=Trinityhouse+Centurion" },
+        { name: "Centurion primary options", map: "https://www.google.com/maps/search/?api=1&query=Primary+School+Centurion" },
+        { name: "Centurion preschools (age 4)", map: "https://www.google.com/maps/search/?api=1&query=Preschool+Centurion" },
+      ]
+    }
+  };
+
+  // --- State ---
+  let idx = 0;
+  const answers = {}; // id -> option index
+
+  // --- Elements ---
+  const el = {
+    qNum: document.getElementById("qNum"),
+    qTitle: document.getElementById("qTitle"),
+    qHelp: document.getElementById("qHelp"),
+    qCategory: document.getElementById("qCategory"),
+    opts: document.getElementById("opts"),
+    hint: document.getElementById("hint"),
+    barFill: document.getElementById("barFill"),
+    progressText: document.getElementById("progressText"),
+    backBtn: document.getElementById("backBtn"),
+    nextBtn: document.getElementById("nextBtn"),
+    saveBtn: document.getElementById("saveBtn"),
+    resetBtn: document.getElementById("resetBtn"),
+    results: document.getElementById("results"),
+
+    resTitle: document.getElementById("resTitle"),
+    resSubtitle: document.getElementById("resSubtitle"),
+    resScorePill: document.getElementById("resScorePill"),
+    badges: document.getElementById("badges"),
+    kpiCorridor: document.getElementById("kpiCorridor"),
+    kpiCommute: document.getElementById("kpiCommute"),
+    kpiBudget: document.getElementById("kpiBudget"),
+    kpiStyle: document.getElementById("kpiStyle"),
+    callout: document.getElementById("callout"),
+    homeAreas: document.getElementById("homeAreas"),
+    schoolList: document.getElementById("schoolList"),
+    nextSteps: document.getElementById("nextSteps"),
+    realityChecks: document.getElementById("realityChecks"),
+
+    printBtn: document.getElementById("printBtn"),
+    copyBtn: document.getElementById("copyBtn"),
+    restartBtn: document.getElementById("restartBtn"),
+    copyStatus: document.getElementById("copyStatus"),
+    quizCard: document.getElementById("quizCard"),
+  };
+
+  // --- Helpers ---
+  function clamp(n,min,max){ return Math.max(min, Math.min(max,n)); }
+
+  function setProgress(){
+    const total = questions.length;
+    const done = Object.keys(answers).length;
+    const pct = clamp(Math.round((done/total)*100), 0, 100);
+    el.barFill.style.width = pct + "%";
+    el.progressText.textContent = `${done} / ${total}`;
+    document.querySelector(".bar").setAttribute("aria-valuenow", String(pct));
+  }
+
+  function renderQuestion(){
+    const q = questions[idx];
+    el.qNum.textContent = `Question ${idx+1} of ${questions.length}`;
+    el.qTitle.textContent = q.title;
+    el.qHelp.textContent = q.help;
+    el.qCategory.textContent = q.category;
+    el.hint.textContent = q.hint || "";
+
+    el.opts.innerHTML = "";
+    q.options.forEach((o, i) => {
+      const id = `q_${q.id}_${i}`;
+      const wrap = document.createElement("label");
+      wrap.className = "opt";
+      wrap.setAttribute("for", id);
+      wrap.innerHTML = `
+        <input type="radio" name="${q.id}" id="${id}" value="${i}" ${answers[q.id]===i ? "checked":""} />
+        <div>
+          <strong>${o.label}</strong>
+          <span>${o.desc}</span>
+        </div>
+      `;
+      wrap.addEventListener("click", () => {
+        answers[q.id] = i;
+        setProgress();
+        // small UX: auto-enable next
+        el.nextBtn.textContent = (idx === questions.length - 1) ? "Finish" : "Next";
+      });
+      el.opts.appendChild(wrap);
+    });
+
+    el.backBtn.disabled = idx === 0;
+    el.nextBtn.textContent = (idx === questions.length - 1) ? "Finish" : "Next";
+    setProgress();
+  }
+
+  function computeScores(){
+    const score = {
+      // corridors
+      jhbN: 0, jhbCN: 0, jhbE: 0, ptaE: 0, cent: 0,
+
+      // preferences
+      commute: 0, commuteLabel: "",
+      budgetLabel: "",
+      envLabel: "",
+      aftercareNeed: 0,
+      estate: 0, suburb: 0,
+
+      // constraints
+      constraint: "",
+      values: "",
+      pathway: ""
+    };
+
+    for (const q of questions){
+      if (answers[q.id] == null) continue;
+      const opt = q.options[answers[q.id]];
+      if (!opt || !opt.score) continue;
+      for (const [k,v] of Object.entries(opt.score)){
+        if (typeof score[k] === "number") score[k] += v;
+        else score[k] = (score[k] || 0) + v;
+      }
+      // derive labels from specific questions
+      if (q.id === "commute"){
+        const label = q.options[answers[q.id]].label;
+        score.commuteLabel = label;
+      }
+      if (q.id === "budget"){
+        score.budgetLabel = q.options[answers[q.id]].label;
+      }
+      if (q.id === "learning_env"){
+        score.envLabel = q.options[answers[q.id]].label;
+      }
+      if (q.id === "stress"){
+        score.constraint = q.options[answers[q.id]].label;
+      }
+      if (q.id === "values"){
+        score.values = q.options[answers[q.id]].label;
+      }
+      if (q.id === "future_path"){
+        score.pathway = q.options[answers[q.id]].label;
+      }
+    }
+    // commute numeric posture
+    const commuteMap = {
+      "0–15 minutes": 3,
+      "15–30 minutes": 2,
+      "30–45 minutes": 1,
+      "45+ minutes": 0
+    };
+    score.commute = commuteMap[score.commuteLabel] ?? 2;
+
+    // choose best corridor + runner up
+    const corridorScores = ["jhbN","jhbCN","jhbE","ptaE","cent"]
+      .map(k => ({ k, v: score[k] }))
+      .sort((a,b) => b.v - a.v);
+
+    const best = corridorScores[0];
+    const second = corridorScores[1];
+
+    return { score, best, second, corridorScores };
+  }
+
+  function gradeDot(n){
+    if (n >= 7) return "good";
+    if (n >= 4) return "warn";
+    return "bad";
+  }
+
+  function buildBadges({score, best, second}){
+    el.badges.innerHTML = "";
+    const b = [];
+
+    // A simple "completeness" measure
+    const completed = Object.keys(answers).length;
+    const completeness = Math.round((completed / questions.length) * 10);
+    b.push({ label: `Completion: ${completed}/${questions.length}`, tone: completeness >= 9 ? "good" : (completeness >= 7 ? "warn" : "bad") });
+
+    // Logistics risk (commute + aftercare need)
+    const logistics = (score.commute * 2) + (score.aftercareNeed ? 2 : 0);
+    b.push({ label: `Logistics pressure`, tone: gradeDot(logistics) });
+
+    // Decision clarity
+    const unclear = (score.budgetLabel === "Not sure yet" ? 1 : 0) + (score.pathway === "Not sure yet" ? 1 : 0);
+    b.push({ label: unclear === 0 ? "Decision clarity: High" : (unclear === 1 ? "Decision clarity: Medium" : "Decision clarity: Low"), tone: unclear === 0 ? "good" : (unclear === 1 ? "warn" : "bad") });
+
+    // Corridor picks
+    b.push({ label: `Top corridor: ${corridors[best.k].name}`, tone: "good" });
+    b.push({ label: `Backup corridor: ${corridors[second.k].name}`, tone: "warn" });
+
+    for (const item of b){
+      const div = document.createElement("span");
+      div.className = "badge";
+      div.innerHTML = `<span class="dot ${item.tone}"></span><span>${item.label}</span>`;
+      el.badges.appendChild(div);
+    }
+  }
+
+  function buildConclusion({score, best, second, corridorScores}){
+    // Core narrative: fit + stability + options
+    const corridorName = corridors[best.k].name;
+
+    const env = score.envLabel || "Balanced structure";
+    const budget = score.budgetLabel || "Public/CAPS focus";
+    const commute = score.commuteLabel || "15–30 minutes";
+
+    // Titles
+    let title = "A stability-first plan with strong optionality";
+    if (budget.includes("Premium")) title = "A premium pathway plan (protect routines, not just reputation)";
+    if (budget.includes("Public")) title = "A smart public-school strategy (win with zoning + support)";
+    if (budget.includes("Mid-fee")) title = "A balanced private-network strategy (predictability + fit)";
+
+    el.resTitle.textContent = title;
+    el.resSubtitle.textContent = `Best-fit corridor: ${corridorName}. Your quiz signals: ${env} learning environment, ${budget} budget posture, commute tolerance ${commute}.`;
+
+    // Score pill: show corridor score spread (simple)
+    const spread = corridorScores.slice(0,3).map(x => `${x.k}:${x.v}`).join(" · ");
+    el.resScorePill.textContent = `Signals: ${spread}`;
+
+    el.kpiCorridor.textContent = corridorName;
+    el.kpiCommute.textContent = commute;
+    el.kpiBudget.textContent = budget;
+    el.kpiStyle.textContent = env;
+
+    // Callout: constraint-aware advice
+    const constraint = score.constraint || "";
+    let callout = "Design your move around routines: school proximity, aftercare reliability, and a backup school plan in the same area.";
+    if (constraint.startsWith("Time")) callout = "Time is your limiting reagent. Prioritize living close to school (and aftercare), even if it means sacrificing some ‘dream house’ features.";
+    if (constraint.startsWith("Energy")) callout = "Energy is the bottleneck. Choose a calmer commute and a school culture that feels emotionally safe — this protects Liam and protects you.";
+    if (constraint.startsWith("Budget")) callout = "Budget predictability matters most. Build a plan that you can sustain for 10+ years without panic, and avoid fee creep surprises.";
+    if (constraint.startsWith("Support")) callout = "Support is key. Prioritize schools with strong aftercare and learning support access, and home areas where help (family/amenities) is close.";
+    el.callout.textContent = callout;
+
+    // Home areas list (best corridor + some overlap with runner-up if close)
+    const homeAreas = [];
+    corridors[best.k].homeAreas.forEach(a => homeAreas.push(a));
+    // Add a couple from second to build Plan B options
+    corridors[second.k].homeAreas.slice(0,2).forEach(a => homeAreas.push(`(Plan B) ${a}`));
+    el.homeAreas.innerHTML = homeAreas.map(x => `<li>${x}</li>`).join("");
+
+    // School shortlist (show 5 from best + 2 from runner-up)
+    const schools = [];
+    corridors[best.k].schools.forEach(s => schools.push(s));
+    corridors[second.k].schools.slice(0,2).forEach(s => schools.push({name:`(Plan B) ${s.name}`, map:s.map}));
+
+    el.schoolList.innerHTML = schools.map(s =>
+      `<li><a href="${s.map}" target="_blank" rel="noopener">${escapeHtml(s.name)}</a></li>`
+    ).join("");
+
+    // Next steps
+    const nextSteps = [
+      "Pick 3 schools in your top corridor: one “reach”, one “solid”, one “safety”.",
+      "Phone/email each school: admissions timeline, Grade R entry age rules, waiting list process, sibling priority.",
+      "Book visits: observe class size, teacher warmth, discipline style, and aftercare quality.",
+      "Map your commute at real times (07:00 and 13:00) for your top 2–3 suburbs.",
+      "Build Plan B: a second corridor you’d still be happy living in (not just tolerating).",
+      "Create a 12-month budget view: fees + uniforms + extras + transport + aftercare."
+    ];
+    el.nextSteps.innerHTML = nextSteps.map(x => `<li>${x}</li>`).join("");
+
+    // Reality checks (high-impact questions)
+    const checks = [
+      "If we miss our top school, are we still happy with the suburb and the Plan B school?",
+      "Can we sustain this commute daily for 10 years without burning out?",
+      "Does the school handle discipline and bullying with a clear process (not vibes)?",
+      "What is the teacher-to-learner ratio in Grade R and Grade 1 — specifically?",
+      "Is aftercare enriching and safe, or just supervision?",
+      "Does the culture match Liam’s temperament (warmth vs pressure vs structure)?"
+    ];
+    el.realityChecks.innerHTML = checks.map(x => `<li>${x}</li>`).join("");
+  }
+
+  function escapeHtml(s){
+    return String(s).replace(/[&<>"']/g, m => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[m]));
+  }
+
+  function showResults(){
+    // Require all answers for best accuracy, but don’t block hard — just warn.
+    const missing = questions.filter(q => answers[q.id] == null).length;
+    const { score, best, second, corridorScores } = computeScores();
+
+    buildBadges({ score, best, second });
+    buildConclusion({ score, best, second, corridorScores });
+
+    if (missing > 0){
+      el.resSubtitle.textContent += ` (Note: ${missing} unanswered question(s) may reduce accuracy.)`;
+    }
+
+    el.quizCard.style.display = "none";
+    el.results.style.display = "block";
+    el.results.scrollIntoView({ behavior:"smooth", block:"start" });
+  }
+
+  // --- Persistence ---
+  const STORAGE_KEY = "gauteng_school_quiz_v1";
+  function save(){
+    const payload = { answers, idx, ts: Date.now() };
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(payload));
+    el.saveBtn.textContent = "Saved ✓";
+    setTimeout(() => el.saveBtn.textContent = "Save", 900);
+  }
+  function load(){
+    try{
+      const raw = localStorage.getItem(STORAGE_KEY);
+      if (!raw) return;
+      const payload = JSON.parse(raw);
+      if (!payload || !payload.answers) return;
+      Object.assign(answers, payload.answers);
+      idx = clamp(payload.idx ?? 0, 0, questions.length-1);
+    }catch(e){}
+  }
+  function reset(){
+    for (const k of Object.keys(answers)) delete answers[k];
+    idx = 0;
+    localStorage.removeItem(STORAGE_KEY);
+    el.results.style.display = "none";
+    el.quizCard.style.display = "block";
+    renderQuestion();
+  }
+
+  // --- Copy summary ---
+  function buildSummaryText(){
+    const { score, best, second } = computeScores();
+    const top = corridors[best.k].name;
+    const backup = corridors[second.k].name;
+    const homes = corridors[best.k].homeAreas.join(", ");
+    const schools = corridors[best.k].schools.map(s => s.name).join("; ");
+    return [
+      "Gauteng School + Home Area Quiz — Summary",
+      `Top corridor: ${top}`,
+      `Backup corridor: ${backup}`,
+      `Commute tolerance: ${score.commuteLabel || "—"}`,
+      `Budget posture: ${score.budgetLabel || "—"}`,
+      `Learning environment: ${score.envLabel || "—"}`,
+      `Suggested home areas: ${homes}`,
+      `Starter schools to research: ${schools}`,
+      "",
+      "Next steps: shortlist 3 schools (reach/solid/safety), confirm admissions, visit, and test commute at real times."
+    ].join("\n");
+  }
+
+  // --- Events ---
+  el.backBtn.addEventListener("click", () => {
+    idx = clamp(idx - 1, 0, questions.length - 1);
+    renderQuestion();
+  });
+
+  el.nextBtn.addEventListener("click", () => {
+    const q = questions[idx];
+    if (answers[q.id] == null){
+      el.hint.textContent = "Pick an option to continue (this keeps your results accurate).";
+      return;
+    }
+    el.hint.textContent = q.hint || "";
+    if (idx === questions.length - 1){
+      showResults();
+      return;
+    }
+    idx = clamp(idx + 1, 0, questions.length - 1);
+    renderQuestion();
+  });
+
+  el.saveBtn.addEventListener("click", save);
+  el.resetBtn.addEventListener("click", reset);
+
+  el.printBtn.addEventListener("click", () => window.print());
+
+  el.copyBtn.addEventListener("click", async () => {
+    try{
+      const text = buildSummaryText();
+      await navigator.clipboard.writeText(text);
+      el.copyStatus.textContent = "Copied summary to clipboard.";
+      setTimeout(() => el.copyStatus.textContent = "", 1400);
+    }catch(e){
+      el.copyStatus.textContent = "Copy failed (browser blocked clipboard).";
+      setTimeout(() => el.copyStatus.textContent = "", 1600);
+    }
+  });
+
+  el.restartBtn.addEventListener("click", () => {
+    el.results.style.display = "none";
+    el.quizCard.style.display = "block";
+    idx = 0;
+    renderQuestion();
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  });
+
+  // --- Boot ---
+  load();
+  renderQuestion();
+
+})();
+</script>
+</body>
+</html>
